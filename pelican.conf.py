@@ -1,6 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
+import os
+ROOT = os.path.realpath(os.getcwd())
 
+THEME = os.path.join(ROOT,'themes','rach')
+#THEME = 'notmyidea'
 AUTHOR = u"Rach Belaid"
 SITENAME = u"There's a snake in my boot!"
 SITEURL = '/'
@@ -25,4 +29,4 @@ SOCIAL = (
 DEFAULT_PAGINATION = 7
 
 
-    
+

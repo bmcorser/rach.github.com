@@ -51,16 +51,16 @@
 </html>
 
 <!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<!--[if lt IE 7 ]><html class="ie ie6" lang="{{ DEFAULT_LANG }}"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="{{ DEFAULT_LANG }}"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="{{ DEFAULT_LANG }}"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{{ DEFAULT_LANG }}"> <!--<![endif]-->
 <head>
-        
-        <title>There's a snake in my boot! - Articles by Rach Belaid</title>
+        {% block head %}
+        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
         <meta charset="utf-8" />
-        <meta name="description" content="">
-        <meta name="author" content="Rach Belaid">
+        <meta name="description" content="{{ DESCRIPTION }}">
+        <meta name="author" content="{{ AUTHOR }}">
 
 
         <!-- CSS -->
@@ -79,63 +79,47 @@
         <link rel="apple-touch-icon" sizes="114x114" href="theme/images/apple-touch-icon-114x114.png">
 
 
-        
-        
-        
-        
-        
-        
-        
+        {% if FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+        {% endif %}
+        {% if TAG_FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+        {% endif %}
+        {% if TAG_FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+        {% endif %}
+        {% endblock head %}
 </head>
 
 <body id="index" class="home">
         <header id="banner" class="body">
-                <h1><a href="../.">There's a snake in my boot! <strong></strong></a></h1>
+                <h1><a href="{{ SITEURL }}">{{ SITENAME }} <strong>{{ SITESUBTITLE }}</strong></a></h1>
         </header><!-- /#banner -->
         <nav id="menu"><ul>
-        
-        
-          
-        
+        {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+        {% endfor %}
+        {% if DISPLAY_PAGES_ON_MENU %}
+          {% for p in PAGES %}
+            <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+          {% endfor %}
+        {% else %}
+          {% for cat, null in categories %}
+            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+          {% endfor %}
+        {% endif %}
         </ul></nav><!-- /#menu -->
-                
-<section id="content">
-
-<h2>Articles by Rach Belaid</h2>
-
-
-<ol id="post-list">
-        
-        <li><article class="hentry">    
-                <header> <h2 class="entry-title"><a href=".././my-less-super-title.html" rel="bookmark" title="Permalink to My less super title">My less super title</a></h2> </header>
-                <footer class="post-info">
-                    <abbr class="published" title="2010-10-03T10:20:00"> Sun 03 October 2010 </abbr>
-                    <address class="vcard author">By <a class="url fn" href=".././">Rach Belaid</a></address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>test dsdlskdla laskdladks lk lasdkld askl ksad</p>
- </div><!-- /.entry-content -->
-        </article></li>
-        
-        <li><article class="hentry">    
-                <header> <h2 class="entry-title"><a href=".././my-super-title.html" rel="bookmark" title="Permalink to My super title">My super title</a></h2> </header>
-                <footer class="post-info">
-                    <abbr class="published" title="2010-10-03T10:20:00"> Sun 03 October 2010 </abbr>
-                    <address class="vcard author">By <a class="url fn" href=".././">Rach Belaid</a></address>
-                </footer><!-- /.post-info -->
-                <div class="entry-content"> <p>test dsdlskdla laskdladks lk lasdkld askl ksad</p>
- </div><!-- /.entry-content -->
-        </article></li>
-
-</ol><!-- /#posts-list -->
-
-<p class="paginator">
-    
-    Page 1 / 1
-    
-</p>
-
-</section><!-- /#content -->
-
+        {% block content %}
+        {% endblock %}
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
                 Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
