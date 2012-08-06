@@ -4,58 +4,6 @@
 <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
 <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
 <head>
-
-	<!-- Basic Page Needs
-  ================================================== -->
-	<meta charset="utf-8">
-	<title>Your Page Title Here :)</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-	<!-- Mobile Specific Metas
-  ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-	<!-- CSS
-  ================================================== -->
-	<link rel="stylesheet" href="stylesheets/base.css">
-	<link rel="stylesheet" href="stylesheets/skeleton.css">
-	<link rel="stylesheet" href="stylesheets/layout.css">
-
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
-
-	<!-- Favicons
-	================================================== -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-
-</head>
-<body>
-
-
-
-	
-	<div class="container">
-		
-
-	</div><!-- container -->
-
-
-<!-- End Document
-================================================== -->
-</body>
-</html>
-
-<!DOCTYPE html>
-<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-<head>
         
         <title>There's a snake in my boot!</title>
         <meta charset="utf-8" />
@@ -64,19 +12,21 @@
 
 
         <!-- CSS -->
-        <link rel="stylesheet" href="theme/css/base.css">
-        <link rel="stylesheet" href="theme/css/skeleton.css">
-        <link rel="stylesheet" href="theme/css/layout.css">
+        <link rel="stylesheet" href="theme/css/style.css">
+        
 
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="theme/images/favicon.ico">
-        <link rel="apple-touch-icon" href="theme/images/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="theme/images/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="theme/images/apple-touch-icon-114x114.png">
+        <link rel="shortcut icon" href="theme/img/favicon.ico">
+        <link rel="apple-touch-icon" href="theme/img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="theme/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="theme/img/apple-touch-icon-114x114.png">
+
+        <!-- Script -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 
 
         
@@ -87,17 +37,40 @@
         
         
 </head>
+<body id="index" class="home" >
+        <!-- Navbar
+            ================================================== -->
+         <div class="navbar navbar-fixed-top">
+           <div class="navbar-inner">
+             <div class="container">
+             
+                  <a class="brand" href="/">THERE'S A SNAKE IN MY BOOT!</a>
+               <ul class="nav">
+                <li class="active">
+                <a href="#">TWITTER</a>
+                </li>
+                <li><a href="#">LINKEDIN</a></li>
+                <li><a href="#">GITHUB</a></li>
+                </ul>
+             
+               
+             </div>
+           </div>
+         </div>
+        <div class="container">
 
-<body id="index" class="home">
-        <header id="banner" class="body">
-                <h1><a href="../.">There's a snake in my boot! <strong></strong></a></h1>
-        </header><!-- /#banner -->
-        <nav id="menu"><ul>
-        
-        
-          
-        
-        </ul></nav><!-- /#menu -->
+        <header id="overview" class="jumbotron subhead">
+          <h2>Rach Belaid's blog </h2>
+          <p class="lead">Python Charmer, Git Lover, OpenSource Idolizer, Technology dreamer</p>
+          <div class="subnav">
+            <ul class="nav nav-pills">
+                
+                
+                  
+                
+            </ul>
+          </div>
+        </header>
                 
 <section id="content">
 
@@ -145,12 +118,17 @@
 </p>
 
 </section><!-- /#content -->
+        
 
+        </div><!-- container -->
+        
         <footer id="contentinfo" class="body">
                 <address id="about" class="vcard body">
                 Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
                 which takes great advantage of <a href="http://python.org">Python</a>.
                 </address><!-- /#about -->
         </footer><!-- /#contentinfo -->
+
+        <script src="theme/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -6,7 +6,9 @@ ROOT = os.path.realpath(os.getcwd())
 THEME = os.path.join(ROOT,'themes','rach')
 #THEME = 'notmyidea'
 AUTHOR = u"Rach Belaid"
+SITETITLE= u"Rach Belaid's blog"
 SITENAME = u"There's a snake in my boot!"
+SITESUBTITLE = u"Python Charmer, Git Lover, OpenSource Idolizer, Technology dreamer"
 SITEURL = '/'
 
 TIMEZONE = 'Europe/Paris'
