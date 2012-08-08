@@ -30,6 +30,4 @@ $ git pull -s subtree Bproject master #5
 &lt;li&gt;maintain the result with subsequent merges using &amp;quot;subtree&amp;quot;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;The first four commands are used for the initial merge, while the last one is to merge updates from B project.&lt;/p&gt;
-</summary><category term="thats"></category><category term="awesome"></category></entry><entry><title>My less super title</title><link href="//my-less-super-title.html" rel="alternate"></link><updated>2010-10-03T10:20:00+01:00</updated><author><name>Rach Belaid</name></author><id>//my-less-super-title.html</id><summary type="html">&lt;p&gt;test dsdlskdla laskdladks lk lasdkld askl ksad&lt;/p&gt;
-</summary><category term="thats"></category><category term="awesome"></category></entry><entry><title>My super title</title><link href="//my-super-title.html" rel="alternate"></link><updated>2010-10-03T10:20:00+01:00</updated><author><name>Rach Belaid</name></author><id>//my-super-title.html</id><summary type="html">&lt;p&gt;test dsdlskdla laskdladks lk lasdkld askl ksad&lt;/p&gt;
 </summary><category term="thats"></category><category term="awesome"></category></entry></feed>
