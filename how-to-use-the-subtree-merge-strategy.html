@@ -13,6 +13,8 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="theme/css/style.css">
+        <link rel="stylesheet" href="theme/css/pygment.css"> 
+        
         
 
         <!--[if lt IE 9]>
@@ -27,7 +29,7 @@
 
         <!-- Script -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
+        
 
         
         
@@ -45,14 +47,17 @@
              <div class="container">
              
                   <a class="brand" href="/">THERE'S A SNAKE IN MY BOOT!</a>
-               <ul class="nav">
-                <li class="active">
-                <a href="#">TWITTER</a>
-                </li>
-                <li><a href="#">LINKEDIN</a></li>
-                <li><a href="#">GITHUB</a></li>
+                   
+                <ul class="nav pull-right">
+                    
+                    <li><a href="https://twitter.com/rachbelaid"> Twitter</a></li>
+                    
+                    <li><a href="http://uk.linkedin.com/in/rachbelaid"> Linkedin</a></li>
+                    
+                    <li><a href="http://github.com/rach/"> Github</a></li>
+                    
                 </ul>
-             
+                
                
              </div>
            </div>
@@ -60,16 +65,18 @@
         <div class="container">
 
         <header id="overview" class="jumbotron subhead">
-          <h2>Rach Belaid's blog </h2>
-          <p class="lead">Python Charmer, Git Lover, OpenSource Idolizer, Technology dreamer</p>
-          <div class="subnav">
-            <ul class="nav nav-pills">
-                
-                
-                  
-                
-            </ul>
+          <div class="header"> 
+            
+            <img src="theme/img/avatar.jpg" class="logo pull-left" />
+            
+            <div class="title" class="pull-left" >
+                <h2>Rach Belaid's blog </h2>
+                <p class="lead">Python Charmer, Git Lover, OpenSource Admirer, Technology Dreamer</p>
+            </div>
           </div>
+          <div class".clearfix"></div>
+          
+
         </header>
         
 <section id="content" class="body">
@@ -94,23 +101,31 @@
 <p>What you want is the subtree merge strategy, which helps you in such a situation.</p>
 <p>In this example, let’s say you have the repository at /path/to/B (but it can be an URL as well, if you want). You want to merge the master branch of that repository to the dir-B subdirectory in your current branch.</p>
 <p>Here is the command sequence you need:</p>
-<pre class="literal-block">
-    $ git remote add -f Bproject /path/to/B &lt;1&gt;
-    $ git merge -s ours --no-commit Bproject/master &lt;2&gt;
-    $ git read-tree --prefix=dir-B/ -u Bproject/master &lt;3&gt;
-    $ git commit -m &quot;Merge B project as our subdirectory&quot; &lt;4&gt;
-    $ git pull -s subtree Bproject master &lt;5&gt;
-
-name the other project &quot;Bproject&quot;, and fetch.
-
-prepare for the later step to record the result as a merge.
-
-read &quot;master&quot; branch of Bproject to the subdirectory &quot;dir-B&quot;.
-
-record the merge result.
-
-maintain the result with subsequent merges using &quot;subtree&quot;
-</pre>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre>$ git remote add -f Bproject /path/to/B
+$ git merge -s ours --no-commit Bproject/master
+$ git read-tree --prefix=dir-B/ -u Bproject/master #3
+$ git commit -m &quot;Merge B project as our subdirectory&quot; #4
+$ git pull -s subtree Bproject master #5
+</pre></div>
+</td></tr></table><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="s">&#39;foo&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">a</span>
+<span class="go">foo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="gt">Traceback (most recent call last):</span>
+  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
+<span class="gr">ZeroDivisionError</span>: <span class="n">integer division or modulo by zero</span>
+</pre></div>
+<ol class="arabic simple">
+<li>name the other project &quot;Bproject&quot;, and fetch.</li>
+<li>prepare for the later step to record the result as a merge.</li>
+<li>read &quot;master&quot; branch of Bproject to the subdirectory &quot;dir-B&quot;.</li>
+<li>record the merge result.</li>
+<li>maintain the result with subsequent merges using &quot;subtree&quot;</li>
+</ol>
 <p>The first four commands are used for the initial merge, while the last one is to merge updates from B project.</p>
 
   </div><!-- /.entry-content -->
@@ -120,10 +135,9 @@ maintain the result with subsequent merges using &quot;subtree&quot;
         </div><!-- container -->
         
         <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+                
+               <div class="pull-right" >Powered by <a href="http://getpelican.com/">Pelican</a> </div>
+                
         </footer><!-- /#contentinfo -->
 
         <script src="theme/js/bootstrap.min.js"></script>

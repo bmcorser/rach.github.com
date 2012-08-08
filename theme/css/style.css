@@ -4453,6 +4453,7 @@ pre.prettyprint {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  color: #000;
 }
 @media (max-width: 768px) {
   div.subnav {
@@ -4489,3 +4490,41 @@ pre.prettyprint {
 .invisible {
   visibility: hidden;
 }
+
+/* custom style */
+
+.code {
+  width:100%
+}
+
+pre , code {
+  color: #000;
+}
+
+.title {
+
+  padding-top: 50px;
+
+}
+
+.logo {
+  margin-right:20px;
+}
+
+.header {
+  padding-bottom: 20px;
+  background-color: #ffffff;
+  background-image: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border: 2px solid #eeeeee;
+  border-left: none;
+  border-top: none;
+  border-right: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+
