@@ -13,6 +13,8 @@
 
         <!-- CSS -->
         <link rel="stylesheet" href="theme/css/style.css">
+        <link rel="stylesheet" href="theme/css/pygment.css"> 
+        
         
 
         <!--[if lt IE 9]>
@@ -27,7 +29,7 @@
 
         <!-- Script -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
+        
 
         {% if FEED_ATOM %}
         <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
@@ -57,14 +59,13 @@
              <div class="container">
              
                   <a class="brand" href="/">{{ SITENAME|upper }}</a>
-               <ul class="nav pull-right">
-                <li>
-                <a href="#">TWITTER</a>
-                </li>
-                <li><a href="#">LINKEDIN</a></li>
-                <li><a href="#">GITHUB</a></li>
+                {% if LINKS %}   
+                <ul class="nav pull-right">
+                    {% for title, link in LINKS %}
+                    <li><a href="{{ link }}"> {{ title }}</a></li>
+                    {% endfor %}
                 </ul>
-             
+                {% endif %}
                
              </div>
            </div>
@@ -72,8 +73,17 @@
         <div class="container">
 
         <header id="overview" class="jumbotron subhead">
-          <h2>{{ SITETITLE }} </h2>
-          <p class="lead">{{ SITESUBTITLE }}</p>
+          <div class="header"> 
+            
+            <img src="theme/img/avatar.jpg" class="logo pull-left" />
+            
+            <div class="title" class="pull-left" >
+                <h2>{{ SITETITLE }} </h2>
+                <p class="lead">{{ SITESUBTITLE }}</p>
+            </div>
+          </div>
+          <div class".clearfix"></div>
+          {% if MENUITEMS %}
           <div class="subnav">
             <ul class="nav nav-pills">
                 {% for title, link in MENUITEMS %}
@@ -90,6 +100,8 @@
                 {% endif %}
             </ul>
           </div>
+          {% endif %}
+
         </header>
         {% block content %}
 
@@ -98,10 +110,9 @@
         </div><!-- container -->
         
         <footer id="contentinfo" class="body">
-                <address id="about" class="vcard body">
-                Proudly powered by <a href="http://getpelican.com/">Pelican</a>,
-                which takes great advantage of <a href="http://python.org">Python</a>.
-                </address><!-- /#about -->
+                
+               <div class="pull-right" >Powered by <a href="http://getpelican.com/">Pelican</a> </div>
+                
         </footer><!-- /#contentinfo -->
 
         <script src="theme/js/bootstrap.min.js"></script>

@@ -8,19 +8,18 @@ THEME = os.path.join(ROOT,'themes','rach')
 AUTHOR = u"Rach Belaid"
 SITETITLE= u"Rach Belaid's blog"
 SITENAME = u"There's a snake in my boot!"
-SITESUBTITLE = u"Python Charmer, Git Lover, OpenSource Idolizer, Technology dreamer"
+SITESUBTITLE = u"Python Charmer, Git Lover, OpenSource Admirer, Technology Dreamer"
 SITEURL = '/'
 
-TIMEZONE = 'Europe/Paris'
+TIMEZONE = 'Europe/London'
 
 DEFAULT_LANG='en'
 
 # Blogroll
 LINKS =  (
-    ('Pelican', 'http://docs.notmyidea.org/alexis/pelican/'),
-    ('Python.org', 'http://python.org'),
-    ('Jinja2', 'http://jinja.pocoo.org'),
-    ('You can modify those links in your config file', '#')
+    ('Twitter', 'https://twitter.com/rachbelaid'),
+    ('Linkedin', 'http://uk.linkedin.com/in/rachbelaid'),
+    ('Github', 'http://github.com/rach/'),
          )
 
 # Social widget

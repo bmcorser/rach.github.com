@@ -14,22 +14,36 @@ What you want is the subtree merge strategy, which helps you in such a situation
 
 In this example, let’s say you have the repository at /path/to/B (but it can be an URL as well, if you want). You want to merge the master branch of that repository to the dir-B subdirectory in your current branch.
 
-Here is the command sequence you need: ::
+Here is the command sequence you need: 
 
-        $ git remote add -f Bproject /path/to/B <1>
-        $ git merge -s ours --no-commit Bproject/master <2>
-        $ git read-tree --prefix=dir-B/ -u Bproject/master <3>
-        $ git commit -m "Merge B project as our subdirectory" <4>
-        $ git pull -s subtree Bproject master <5>
+.. code-block:: none
+   :linenos:
 
-    name the other project "Bproject", and fetch.
+   $ git remote add -f Bproject /path/to/B
+   $ git merge -s ours --no-commit Bproject/master
+   $ git read-tree --prefix=dir-B/ -u Bproject/master #3
+   $ git commit -m "Merge B project as our subdirectory" #4
+   $ git pull -s subtree Bproject master #5
 
-    prepare for the later step to record the result as a merge.
+.. code-block:: pycon
 
-    read "master" branch of Bproject to the subdirectory "dir-B".
+   >>> a = 'foo'
+   >>> print a
+   foo
+   >>> 1 / 0
+   Traceback (most recent call last):
+     File "<stdin>", line 1, in <module>
+   ZeroDivisionError: integer division or modulo by zero
 
-    record the merge result.
 
-    maintain the result with subsequent merges using "subtree"
+1. name the other project "Bproject", and fetch.
+
+2. prepare for the later step to record the result as a merge.
+
+3. read "master" branch of Bproject to the subdirectory "dir-B".
+
+4. record the merge result.
+
+5.  maintain the result with subsequent merges using "subtree"
 
 The first four commands are used for the initial merge, while the last one is to merge updates from B project.
