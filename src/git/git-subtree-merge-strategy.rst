@@ -25,16 +25,6 @@ Here is the command sequence you need:
    $ git commit -m "Merge B project as our subdirectory" #4
    $ git pull -s subtree Bproject master #5
 
-.. code-block:: pycon
-
-   >>> a = 'foo'
-   >>> print a
-   foo
-   >>> 1 / 0
-   Traceback (most recent call last):
-     File "<stdin>", line 1, in <module>
-   ZeroDivisionError: integer division or modulo by zero
-
 
 1. name the other project "Bproject", and fetch.
 

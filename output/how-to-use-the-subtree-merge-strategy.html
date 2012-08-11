@@ -85,16 +85,7 @@
       <a href="how-to-use-the-subtree-merge-strategy.html" rel="bookmark"
          title="Permalink to How to use the subtree merge strategy">How to use the subtree merge strategy</a></h2>
   </header>
-  <footer class="post-info">
-    <abbr class="published" title="2010-10-03T10:20:00">
-      Sun 03 October 2010
-    </abbr>
-    
-    <address class="vcard author">
-      By <a class="url fn" href="./">Rach Belaid</a>
-    </address>
-    
-  </footer><!-- /.post-info -->
+  
   <div class="entry-content">
     <p>There are situations where you want to include contents in your project from an independently developed project. You can just pull from the other project as long as there are no conflicting paths.</p>
 <p>The problematic case is when there are conflicting files. Potential candidates are Makefiles and other standard filenames. You could merge these files but probably you do not want to. A better solution for this problem can be to merge the project as its own subdirectory. This is not supported by the recursive merge strategy, so just pulling won’t work.</p>
@@ -111,15 +102,7 @@ $ git read-tree --prefix=dir-B/ -u Bproject/master #3
 $ git commit -m &quot;Merge B project as our subdirectory&quot; #4
 $ git pull -s subtree Bproject master #5
 </pre></div>
-</td></tr></table><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="s">&#39;foo&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">a</span>
-<span class="go">foo</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
-<span class="gt">Traceback (most recent call last):</span>
-  File <span class="nb">&quot;&lt;stdin&gt;&quot;</span>, line <span class="m">1</span>, in <span class="n">&lt;module&gt;</span>
-<span class="gr">ZeroDivisionError</span>: <span class="n">integer division or modulo by zero</span>
-</pre></div>
-<ol class="arabic simple">
+</td></tr></table><ol class="arabic simple">
 <li>name the other project &quot;Bproject&quot;, and fetch.</li>
 <li>prepare for the later step to record the result as a merge.</li>
 <li>read &quot;master&quot; branch of Bproject to the subdirectory &quot;dir-B&quot;.</li>
@@ -129,6 +112,27 @@ $ git pull -s subtree Bproject master #5
 <p>The first four commands are used for the initial merge, while the last one is to merge updates from B project.</p>
 
   </div><!-- /.entry-content -->
+ 	 <footer class="post-info">
+ 	<i class="icon-calendar"></i>
+ 	<span >
+ 		
+	    <abbr class="published" title="2010-10-03T10:20:00">
+	      03 Oct 2010
+	    </abbr>
+	</span>
+
+    
+    <i class="icon-user offset"></i>
+    <span>
+    	
+	    <address class="vcard author">
+	      <a class="url fn" href="./">Rach Belaid</a>
+	    </address>
+	</span>
+    
+  </footer>
+
+ 
 </section>
         
 
@@ -136,7 +140,7 @@ $ git pull -s subtree Bproject master #5
         
         <footer id="contentinfo" class="body">
                 
-               <div class="pull-right" >Powered by <a href="http://getpelican.com/">Pelican</a> </div>
+               <div class="pull-right powered" > Powered by <a href="http://getpelican.com/">Pelican</a> </div>
                 
         </footer><!-- /#contentinfo -->
 
