@@ -14,15 +14,7 @@ $ git read-tree --prefix=dir-B/ -u Bproject/master #3
 $ git commit -m &amp;quot;Merge B project as our subdirectory&amp;quot; #4
 $ git pull -s subtree Bproject master #5
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;foo&amp;#39;&lt;/span&gt;
-&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
-&lt;span class="go"&gt;foo&lt;/span&gt;
-&lt;span class="gp"&gt;&amp;gt;&amp;gt;&amp;gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="gt"&gt;Traceback (most recent call last):&lt;/span&gt;
-  File &lt;span class="nb"&gt;&amp;quot;&amp;lt;stdin&amp;gt;&amp;quot;&lt;/span&gt;, line &lt;span class="m"&gt;1&lt;/span&gt;, in &lt;span class="n"&gt;&amp;lt;module&amp;gt;&lt;/span&gt;
-&lt;span class="gr"&gt;ZeroDivisionError&lt;/span&gt;: &lt;span class="n"&gt;integer division or modulo by zero&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;ol class="arabic simple"&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;ol class="arabic simple"&gt;
 &lt;li&gt;name the other project &amp;quot;Bproject&amp;quot;, and fetch.&lt;/li&gt;
 &lt;li&gt;prepare for the later step to record the result as a merge.&lt;/li&gt;
 &lt;li&gt;read &amp;quot;master&amp;quot; branch of Bproject to the subdirectory &amp;quot;dir-B&amp;quot;.&lt;/li&gt;
