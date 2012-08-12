@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*- #
 import os
 ROOT = os.path.realpath(os.getcwd())
-
 THEME = os.path.join(ROOT,'themes','rach')
 #THEME = 'notmyidea'
 AUTHOR = u"Rach Belaid"
@@ -12,6 +11,9 @@ SITESUBTITLE = u"Python Charmer, Git Lover, OpenSource Admirer, Technology Dream
 SITEURL = '/'
 
 TIMEZONE = 'Europe/London'
+GITHUB_REPO = "https://github.com/rach/rach.github.com"
+GIT_BRANCH = 'source'
+GITHUB_EDIT_PREFIX = "%s/blob/%s" % (GITHUB_REPO, GIT_BRANCH)
 
 DEFAULT_LANG='en'
 
@@ -28,6 +30,12 @@ SOCIAL = (
          )
 
 DEFAULT_PAGINATION = 7
-
+#PLUGIN_PATH = "plugins"
+import os
+import sys
+sys.path.append(os.getcwd())
 DEFAULT_DATE_FORMAT = "%d %b %Y"
+#import pdb; pdb.set_trace()
+from plugins.bitly import bitly_plugin
+PLUGINS = [bitly_plugin,]
 
