@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="{{ DEFAULT_LANG }}"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="{{ DEFAULT_LANG }}"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="{{ DEFAULT_LANG }}"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="{{ DEFAULT_LANG }}"> <!--<![endif]-->
+<head>
+        {% block head %}
+        <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="{{ DESCRIPTION }}">
+        <meta name="author" content="{{ AUTHOR }}">
+
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="theme/css/style.css">
+        <link rel="stylesheet" href="theme/css/pygment.css"> 
+        
+        
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="theme/img/favicon.ico">
+        <link rel="apple-touch-icon" href="theme/img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="theme/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="theme/img/apple-touch-icon-114x114.png">
+
+        <!-- Script -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        
+
+        {% if FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+        {% endif %}
+        {% if FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+        {% endif %}
+        {% if CATEGORY_FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ CATEGORY_FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+        {% endif %}
+        {% if TAG_FEED_ATOM %}
+        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_ATOM }}" type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+        {% endif %}
+        {% if TAG_FEED_RSS %}
+        <link href="{{ FEED_DOMAIN }}/{{ TAG_FEED_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+        {% endif %}
+        {% endblock head %}
+</head>
+<body id="index" class="home" >
+        <!-- Navbar
+            ================================================== -->
+         <div class="navbar navbar-fixed-top">
+           <div class="navbar-inner">
+             <div class="container">
+             
+                  <a class="brand" href="/">{{ SITENAME|upper }}</a>
+                {% if LINKS %}   
+                <ul class="nav pull-right">
+                    {% for title, link in LINKS %}
+                    <li><a href="{{ link }}"> {{ title }}</a></li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+               
+             </div>
+           </div>
+         </div>
+        <div class="container">
+
+        <header id="overview" class="jumbotron subhead">
+          <div class="header"> 
+            
+            <img src="theme/img/avatar.png" class="logo pull-left" />
+            
+            <div class="title" class="pull-left" >
+                <h2>{{ SITETITLE }} </h2>
+                <p class="lead">{{ SITESUBTITLE }}</p>
+            </div>
+          </div>
+          <div class".clearfix"></div>
+          {% if MENUITEMS %}
+          <div class="subnav">
+            <ul class="nav nav-pills">
+                {% for title, link in MENUITEMS %}
+                 <li class="active"><a href="{{ link }}">{{ title }}</a></li>
+                {% endfor %}
+                {% if DISPLAY_PAGES_ON_MENU %}
+                  {% for p in PAGES %}
+                    <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                  {% endfor %}
+                {% else %}
+                  {% for cat, null in categories %}
+                    <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+                  {% endfor %}
+                {% endif %}
+            </ul>
+          </div>
+          {% endif %}
+
+        </header>
+        {% block content %}
+
+        {% endblock %}        
+
+        </div><!-- container -->
+        
+        <footer id="contentinfo" class="body">
+                
+               <div class="pull-right powered" > Powered by <a href="http://getpelican.com/">Pelican</a> </div>
+                
+        </footer><!-- /#contentinfo -->
+
+        <script src="theme/js/bootstrap.min.js"></script>
+</body>
+</html>

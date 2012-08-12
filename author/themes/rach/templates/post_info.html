@@ -1,0 +1,27 @@
+ <footer class="post-info">
+ 	<i class="icon-calendar"></i>
+ 	<span >
+ 		
+	    <abbr class="published" title="{{ article.date.isoformat() }}">
+	      {{ article.locale_date }}
+	    </abbr>
+	</span>
+
+    {% if article.author %}
+    <i class="icon-user offset"></i>
+    <span>
+    	
+	    <address class="vcard author">
+	      <a class="url fn" href="{{ SITEURL }}/{{ article.author.url }}">{{ article.author }}</a>
+	    </address>
+	</span>
+    {% endif %}
+    <i class="icon-fork offset"></i>
+ 	<span >
+ 		<a target="_blank" href="{{GITHUB_EDIT_PREFIX}}{{ article.filename|replace(ROOT,'') }}"> Fork me</a>
+	</span>
+    
+
+  </footer>
+
+ 
