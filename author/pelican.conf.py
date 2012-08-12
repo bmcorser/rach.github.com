@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 import os
+import sys
+sys.path.append(os.getcwd())
+
 ROOT = os.path.realpath(os.getcwd())
 THEME = os.path.join(ROOT,'themes','rach')
 #THEME = 'notmyidea'
@@ -30,12 +33,9 @@ SOCIAL = (
          )
 
 DEFAULT_PAGINATION = 7
-#PLUGIN_PATH = "plugins"
-import os
-import sys
-sys.path.append(os.getcwd())
 DEFAULT_DATE_FORMAT = "%d %b %Y"
-#import pdb; pdb.set_trace()
-from plugins.bitly import bitly_plugin
-PLUGINS = [bitly_plugin,]
+
+#PLUGIN_PATH = "plugins"
+#from plugins.bitly import bitly_plugin
+#PLUGINS = [bitly_plugin,]
 
