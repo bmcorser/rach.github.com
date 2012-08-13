@@ -4180,6 +4180,7 @@ h3 a:hover,
 h4 a:hover,
 h5 a:hover,
 h6 a:hover {
+  color: #000000;
   text-decoration: none;
 }
 h1 {
@@ -4499,7 +4500,7 @@ code {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  border: 2px dotted #000;
+  border: 2px dotted #666;
   border-left: none;
   border-right: none;
   -webkit-border-radius: 0;
@@ -4517,16 +4518,16 @@ code {
 .post-info a:hover {
   text-decoration: none;
 }
-.post-info i {
+.post-info > i {
   margin-right: 5px;
 }
-.post-info span,
-.post-info i {
+.post-info > span,
+.post-info > i {
   float: left;
 }
 .post-info:after {
   clear: both;
-  content: ".";
+  content: " ";
   display: block;
   height: 0;
 }
@@ -4543,6 +4544,24 @@ address {
 }
 .entry-title {
   margin-bottom: 14px;
+}
+body {
+  font-weight: 200;
+}
+.icon-fork {
+  background-image: url("../img/fork.png");
+  background-position: 0px 0px;
+}
+.icon-twitter {
+  background-image: url("../img/twitter.png");
+  background-position: 0px 0px;
+  width: 16px;
+}
+#dsq-global-toolbar,
+#dsq-subscribe,
+#dsq-sort-by,
+#disqus_thread h3 {
+  display: none;
 }
 .pull-right {
   float: right;
