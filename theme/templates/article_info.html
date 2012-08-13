@@ -20,7 +20,15 @@
  	<span >
  		<a target="_blank" href="{{GITHUB_EDIT_PREFIX}}{{ article.filename|replace(ROOT,'') }}"> Fork me</a>
 	</span>
+
+	 <i class="icon-twitter offset"></i>
+ 	<span >
+ 		<a target="_blank" href="{{ TWITTER_SHARE_URL|format('Check this', article.url ) }}">Tweet me</a>
+	</span>
     
+    <div class="pull-right">
+    	{% include 'tags_list.html' %}
+    </div>
 
   </footer>
 

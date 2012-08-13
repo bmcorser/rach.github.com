@@ -5,7 +5,7 @@ PELICANOPTS=None
 BASEDIR=$(PWD)
 INPUTDIR=$(BASEDIR)/src
 OUTPUTDIR=$(BASEDIR)/output
-CONFFILE=$(BASEDIR)/pelican.conf.py
+CONFFILE=$(BASEDIR)/settings.py
 
 FTP_HOST=localhost
 FTP_USER=anonymous

@@ -4518,11 +4518,11 @@ code {
 .post-info a:hover {
   text-decoration: none;
 }
-.post-info i {
+.post-info > i {
   margin-right: 5px;
 }
-.post-info span,
-.post-info i {
+.post-info > span,
+.post-info > i {
   float: left;
 }
 .post-info:after {
@@ -4551,6 +4551,17 @@ body {
 .icon-fork {
   background-image: url("../img/fork.png");
   background-position: 0px 0px;
+}
+.icon-twitter {
+  background-image: url("../img/twitter.png");
+  background-position: 0px 0px;
+  width: 16px;
+}
+#dsq-global-toolbar,
+#dsq-subscribe,
+#dsq-sort-by,
+#disqus_thread h3 {
+  display: none;
 }
 .pull-right {
   float: right;

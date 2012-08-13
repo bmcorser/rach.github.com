@@ -1,7 +1,7 @@
 How to use the subtree merge strategy
 #####################################
 
-:date: 2010-10-03 10:20
+:date: 2012-08-12 
 :tags: thats, awesome
 :category: yeah
 :author: Rach Belaid
