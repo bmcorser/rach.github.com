@@ -22,10 +22,10 @@
         <![endif]-->
 
         <!-- Favicons -->
-        <link rel="shortcut icon" href="theme/img/favicon.ico">
-        <link rel="apple-touch-icon" href="theme/img/apple-touch-icon.png">
-        <link rel="apple-touch-icon" sizes="72x72" href="theme/img/apple-touch-icon-72x72.png">
-        <link rel="apple-touch-icon" sizes="114x114" href="theme/img/apple-touch-icon-114x114.png">
+        <link rel="shortcut icon" href="/theme/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png">
 
         <!-- Script -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
@@ -59,10 +59,11 @@
              <div class="container">
              
                   <a class="brand" href="/">{{ SITENAME|upper }}</a>
-                {% if LINKS %}   
+                {% if SOCIAL %}   
                 <ul class="nav pull-right">
-                    {% for title, link in LINKS %}
-                    <li><a href="{{ link }}" target="_blank"> {{ title }}</a></li>
+                   
+                    {% for title, link, newtab in SOCIAL %}
+                    <li><a href="{{ link }}" {% if newtab %} target="_blank" {% endif %} > {{ title }}</a></li>
                     {% endfor %}
                 </ul>
                 {% endif %}
@@ -75,7 +76,7 @@
         <header id="overview" class="jumbotron subhead">
           <div class="header"> 
             
-            <img src="theme/img/avatar.png" class="logo pull-left" />
+            <img src="/theme/img/avatar.png" class="logo pull-left" />
             
             <div class="title" class="pull-left" >
                 <h2>{{ SITETITLE }} </h2>
@@ -83,10 +84,10 @@
             </div>
           </div>
           <div class".clearfix"></div>
-          {% if MENUITEMS %}
+          {% if LINKS %}
           <div class="subnav">
             <ul class="nav nav-pills">
-                {% for title, link in MENUITEMS %}
+                {% for title, link in LINKS %}
                  <li class="active"><a href="{{ link }}">{{ title }}</a></li>
                 {% endfor %}
                 {% if DISPLAY_PAGES_ON_MENU %}
