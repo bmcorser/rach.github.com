@@ -167,67 +167,79 @@ a:hover {
 .container,
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 735px;
+  width: 765px;
+}
+.span12 {
+  width: 765px;
+}
+.span11 {
+  width: 700px;
 }
 .span10 {
-  width: 735px;
+  width: 635px;
 }
 .span9 {
-  width: 660px;
+  width: 570px;
 }
 .span8 {
-  width: 585px;
+  width: 505px;
 }
 .span7 {
-  width: 510px;
+  width: 440px;
 }
 .span6 {
-  width: 435px;
+  width: 375px;
 }
 .span5 {
-  width: 360px;
+  width: 310px;
 }
 .span4 {
-  width: 285px;
+  width: 245px;
 }
 .span3 {
-  width: 210px;
+  width: 180px;
 }
 .span2 {
-  width: 135px;
+  width: 115px;
 }
 .span1 {
-  width: 60px;
+  width: 50px;
+}
+.offset12 {
+  margin-left: 795px;
+}
+.offset11 {
+  margin-left: 730px;
 }
 .offset10 {
-  margin-left: 765px;
+  margin-left: 665px;
 }
 .offset9 {
-  margin-left: 690px;
+  margin-left: 600px;
 }
 .offset8 {
-  margin-left: 615px;
+  margin-left: 535px;
 }
 .offset7 {
-  margin-left: 540px;
+  margin-left: 470px;
 }
 .offset6 {
-  margin-left: 465px;
+  margin-left: 405px;
 }
 .offset5 {
-  margin-left: 390px;
+  margin-left: 340px;
 }
 .offset4 {
-  margin-left: 315px;
+  margin-left: 275px;
 }
 .offset3 {
-  margin-left: 240px;
+  margin-left: 210px;
 }
 .offset2 {
-  margin-left: 165px;
+  margin-left: 145px;
 }
 .offset1 {
-  margin-left: 90px;
+  margin-left: 80px;
 }
 .row-fluid {
   width: 100%;
@@ -251,50 +263,58 @@ a:hover {
   box-sizing: border-box;
   float: left;
   margin-left: 2.127659574%;
-  *margin-left: 2.059632363115646%;
+  *margin-left: 2.062300096875817%;
 }
 .row-fluid [class*="span"]:first-child {
   margin-left: 0;
 }
+.row-fluid .span12 {
+  width: 99.99999998999999%;
+  *width: 99.9346405128758%;
+}
+.row-fluid .span11 {
+  width: 91.489361693%;
+  *width: 91.42400221587582%;
+}
 .row-fluid .span10 {
   width: 82.97872339599999%;
-  *width: 82.91069618511564%;
+  *width: 82.9133639188758%;
 }
 .row-fluid .span9 {
   width: 74.468085099%;
-  *width: 74.40005788811565%;
+  *width: 74.40272562187582%;
 }
 .row-fluid .span8 {
   width: 65.95744680199999%;
-  *width: 65.88941959111564%;
+  *width: 65.8920873248758%;
 }
 .row-fluid .span7 {
   width: 57.446808505%;
-  *width: 57.37878129411565%;
+  *width: 57.38144902787582%;
 }
 .row-fluid .span6 {
   width: 48.93617020799999%;
-  *width: 48.86814299711564%;
+  *width: 48.87081073087581%;
 }
 .row-fluid .span5 {
   width: 40.425531911%;
-  *width: 40.35750470011565%;
+  *width: 40.36017243387582%;
 }
 .row-fluid .span4 {
   width: 31.914893614%;
-  *width: 31.846866403115648%;
+  *width: 31.849534136875818%;
 }
 .row-fluid .span3 {
   width: 23.404255317%;
-  *width: 23.336228106115648%;
+  *width: 23.338895839875818%;
 }
 .row-fluid .span2 {
   width: 14.89361702%;
-  *width: 14.825589809115646%;
+  *width: 14.828257542875818%;
 }
 .row-fluid .span1 {
   width: 6.382978723%;
-  *width: 6.3149515121156465%;
+  *width: 6.317619245875817%;
 }
 .container {
   margin-right: auto;
@@ -814,35 +834,41 @@ textarea,
 .uneditable-input {
   margin-left: 0;
 }
+input.span12, textarea.span12, .uneditable-input.span12 {
+  width: 755px;
+}
+input.span11, textarea.span11, .uneditable-input.span11 {
+  width: 690px;
+}
 input.span10, textarea.span10, .uneditable-input.span10 {
-  width: 725px;
+  width: 625px;
 }
 input.span9, textarea.span9, .uneditable-input.span9 {
-  width: 650px;
+  width: 560px;
 }
 input.span8, textarea.span8, .uneditable-input.span8 {
-  width: 575px;
+  width: 495px;
 }
 input.span7, textarea.span7, .uneditable-input.span7 {
-  width: 500px;
+  width: 430px;
 }
 input.span6, textarea.span6, .uneditable-input.span6 {
-  width: 425px;
+  width: 365px;
 }
 input.span5, textarea.span5, .uneditable-input.span5 {
-  width: 350px;
+  width: 300px;
 }
 input.span4, textarea.span4, .uneditable-input.span4 {
-  width: 275px;
+  width: 235px;
 }
 input.span3, textarea.span3, .uneditable-input.span3 {
-  width: 200px;
+  width: 170px;
 }
 input.span2, textarea.span2, .uneditable-input.span2 {
-  width: 125px;
+  width: 105px;
 }
 input.span1, textarea.span1, .uneditable-input.span1 {
-  width: 50px;
+  width: 40px;
 }
 input[disabled],
 select[disabled],
@@ -1332,122 +1358,122 @@ table {
 }
 table .span1 {
   float: none;
-  width: 44px;
+  width: 34px;
   margin-left: 0;
 }
 table .span2 {
   float: none;
-  width: 119px;
+  width: 99px;
   margin-left: 0;
 }
 table .span3 {
   float: none;
-  width: 194px;
+  width: 164px;
   margin-left: 0;
 }
 table .span4 {
   float: none;
-  width: 269px;
+  width: 229px;
   margin-left: 0;
 }
 table .span5 {
   float: none;
-  width: 344px;
+  width: 294px;
   margin-left: 0;
 }
 table .span6 {
   float: none;
-  width: 419px;
+  width: 359px;
   margin-left: 0;
 }
 table .span7 {
   float: none;
-  width: 494px;
+  width: 424px;
   margin-left: 0;
 }
 table .span8 {
   float: none;
-  width: 569px;
+  width: 489px;
   margin-left: 0;
 }
 table .span9 {
   float: none;
-  width: 644px;
+  width: 554px;
   margin-left: 0;
 }
 table .span10 {
   float: none;
-  width: 719px;
+  width: 619px;
   margin-left: 0;
 }
 table .span11 {
   float: none;
-  width: 794px;
+  width: 684px;
   margin-left: 0;
 }
 table .span12 {
   float: none;
-  width: 869px;
+  width: 749px;
   margin-left: 0;
 }
 table .span13 {
   float: none;
-  width: 944px;
+  width: 814px;
   margin-left: 0;
 }
 table .span14 {
   float: none;
-  width: 1019px;
+  width: 879px;
   margin-left: 0;
 }
 table .span15 {
   float: none;
-  width: 1094px;
+  width: 944px;
   margin-left: 0;
 }
 table .span16 {
   float: none;
-  width: 1169px;
+  width: 1009px;
   margin-left: 0;
 }
 table .span17 {
   float: none;
-  width: 1244px;
+  width: 1074px;
   margin-left: 0;
 }
 table .span18 {
   float: none;
-  width: 1319px;
+  width: 1139px;
   margin-left: 0;
 }
 table .span19 {
   float: none;
-  width: 1394px;
+  width: 1204px;
   margin-left: 0;
 }
 table .span20 {
   float: none;
-  width: 1469px;
+  width: 1269px;
   margin-left: 0;
 }
 table .span21 {
   float: none;
-  width: 1544px;
+  width: 1334px;
   margin-left: 0;
 }
 table .span22 {
   float: none;
-  width: 1619px;
+  width: 1399px;
   margin-left: 0;
 }
 table .span23 {
   float: none;
-  width: 1694px;
+  width: 1464px;
   margin-left: 0;
 }
 table .span24 {
   float: none;
-  width: 1769px;
+  width: 1529px;
   margin-left: 0;
 }
 [class^="icon-"],
@@ -3113,7 +3139,7 @@ input[type="submit"].btn.btn-mini {
 }
 .navbar-fixed-top .container,
 .navbar-fixed-bottom .container {
-  width: 735px;
+  width: 765px;
 }
 .navbar-fixed-top {
   top: 0;
@@ -4562,6 +4588,9 @@ body {
 #dsq-sort-by,
 #disqus_thread h3 {
   display: none;
+}
+.navbar-inner > .container {
+  width: 805px;
 }
 .pull-right {
   float: right;
