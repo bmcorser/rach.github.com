@@ -14,6 +14,7 @@ And when you are used to work with virtual environment the last thing that you w
 So stick the few lines below at the bottom of virtualenv’s ‘postactivate’ or at the enf of the ‘activate’ script.
 
 .. code-block:: none
+    
     export GEM_HOME="$VIRTUAL_ENV/gems"
     export GEM_PATH=""
     PATH="$GEM_HOME/bin:$PATH"
@@ -23,6 +24,7 @@ So stick the few lines below at the bottom of virtualenv’s ‘postactivate’ 
 And now inside your virtualenv, you can do :
 
 .. code-block:: none
+    
     gem install <package>
     npm -g install  <package>
 
