@@ -97,30 +97,16 @@
     <p>Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like Compass , Chef , lessc</p>
 <p>And when you are used to work with virtual environment the last thing that you want to do it’s starting to install lib globaly.</p>
 <p>So stick the few lines below at the bottom of virtualenv’s ‘postactivate’ or at the enf of the ‘activate’ script.</p>
-<div class="system-message">
-<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Users/rachid/Dev/personal/blog-rach/src/python/virtualenv-gems-and-npms.rst</tt>, line 16)</p>
-<p>Content block expected for the &quot;code-block&quot; directive; none found.</p>
-<pre class="literal-block">
-.. code-block:: none
-    export GEM_HOME=&quot;$VIRTUAL_ENV/gems&quot;
-    export GEM_PATH=&quot;&quot;
-    PATH=&quot;$GEM_HOME/bin:$PATH&quot;
-    export PATH
-    export npm_config_prefix=$VIRTUAL_ENV
-
-</pre>
-</div>
+<div class="highlight"><pre>export GEM_HOME=&quot;$VIRTUAL_ENV/gems&quot;
+export GEM_PATH=&quot;&quot;
+PATH=&quot;$GEM_HOME/bin:$PATH&quot;
+export PATH
+export npm_config_prefix=$VIRTUAL_ENV
+</pre></div>
 <p>And now inside your virtualenv, you can do :</p>
-<div class="system-message">
-<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Users/rachid/Dev/personal/blog-rach/src/python/virtualenv-gems-and-npms.rst</tt>, line 25)</p>
-<p>Content block expected for the &quot;code-block&quot; directive; none found.</p>
-<pre class="literal-block">
-.. code-block:: none
-    gem install &lt;package&gt;
-    npm -g install  &lt;package&gt;
-
-</pre>
-</div>
+<div class="highlight"><pre>gem install &lt;package&gt;
+npm -g install  &lt;package&gt;
+</pre></div>
 <p>All yours gems/npms won’t be installed globaly but inside the vitualenv and will be deleted with it.</p>
 
   </div><!-- /.entry-content -->
