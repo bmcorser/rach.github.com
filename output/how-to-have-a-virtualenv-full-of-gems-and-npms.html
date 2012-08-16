@@ -85,19 +85,46 @@
           
 
         </header>
-                
-<section id="content">
-
-
-
         
-     <article class="post">    
-            <header> <h3 class="entry-title"><a href="http://rachbelaid.com/how-to-have-a-virtualenv-full-of-gems-and-npms.html" rel="bookmark" title="Permalink to How to have a virtualenv full of gems and npms">How to have a virtualenv full of gems and npms</a></h3> </header>
-            
-            <div class="entry-content"> <p>Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like Compass , Chef , lessc</p>
+<section id="content" class="body">
+  <header>
+    <h3 class="entry-title">
+      <a href="how-to-have-a-virtualenv-full-of-gems-and-npms.html" rel="bookmark"
+         title="Permalink to How to have a virtualenv full of gems and npms">How to have a virtualenv full of gems and npms</a></h3>
+  </header>
+
+  <div class="entry-content">
+    <p>Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like Compass , Chef , lessc</p>
 <p>And when you are used to work with virtual environment the last thing that you want to do it’s starting to install lib globaly.</p>
-<p>So stick ...</p> </div><!-- /.entry-content -->
-             <footer class="post-info">
+<p>So stick the few lines below at the bottom of virtualenv’s ‘postactivate’ or at the enf of the ‘activate’ script.</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Users/rachid/Dev/personal/blog-rach/src/python/virtualenv-gems-and-npms.rst</tt>, line 16)</p>
+<p>Content block expected for the &quot;code-block&quot; directive; none found.</p>
+<pre class="literal-block">
+.. code-block:: none
+    export GEM_HOME=&quot;$VIRTUAL_ENV/gems&quot;
+    export GEM_PATH=&quot;&quot;
+    PATH=&quot;$GEM_HOME/bin:$PATH&quot;
+    export PATH
+    export npm_config_prefix=$VIRTUAL_ENV
+
+</pre>
+</div>
+<p>And now inside your virtualenv, you can do :</p>
+<div class="system-message">
+<p class="system-message-title">System Message: ERROR/3 (<tt class="docutils">/Users/rachid/Dev/personal/blog-rach/src/python/virtualenv-gems-and-npms.rst</tt>, line 25)</p>
+<p>Content block expected for the &quot;code-block&quot; directive; none found.</p>
+<pre class="literal-block">
+.. code-block:: none
+    gem install &lt;package&gt;
+    npm -g install  &lt;package&gt;
+
+</pre>
+</div>
+<p>All yours gems/npms won’t be installed globaly but inside the vitualenv and will be deleted with it.</p>
+
+  </div><!-- /.entry-content -->
+ 	 <footer class="post-info">
 
  	<i class="icon-calendar"></i>
  	<span >
@@ -137,57 +164,21 @@
   </footer>
 
  
-    </article>
-        
-     <article class="post">    
-            <header> <h3 class="entry-title"><a href="http://rachbelaid.com/how-to-use-the-subtree-merge-strategy.html" rel="bookmark" title="Permalink to How to use the subtree merge strategy">How to use the subtree merge strategy</a></h3> </header>
-            
-            <div class="entry-content"> <p>There are situations where you want to include contents in your project from an independently developed project. You can just pull from the other project as long as there are no conflicting paths.</p>
-<p>The problematic case is when there are conflicting files. Potential candidates are Makefiles and other standard filenames ...</p> </div><!-- /.entry-content -->
-             <footer class="post-info">
 
- 	<i class="icon-calendar"></i>
- 	<span >
- 		
-	    <abbr class="published" title="2012-08-12T00:00:00">
-	      12 Aug 2012
-	    </abbr>
-	</span>
-
-    
-    <i class="icon-user offset"></i>
-    <span>
-    	
-	    <address class="vcard author">
-	      <a class="url fn" href="http://rachbelaid.com/author/rach-belaid.html">Rach Belaid</a>
-	    </address>
-	</span>
-    
-    <i class="icon-fork offset"></i>
- 	<span >
- 		<a target="_blank" href="https://github.com/rach/rach.github.com/blob/source/src/git/git-subtree-merge-strategy.rst"> Fork me</a>
-	</span>
-
-	 <i class="icon-twitter offset"></i>
- 	<span >
- 		<a target="_blank" href="https://twitter.com/intent/tweet?original_referer=http://rachbelaid.com&related=rachbelaid&via=rachbelaid&text=Check this&url=http://rachbelaid.com/how-to-use-the-subtree-merge-strategy.html">Tweet me</a>
-	</span>
-    
-    <div class="pull-right">
-    	tags: <i><a href="http://rachbelaid.com/tag/thats.html">thats</a></i>, 
-<i><a href="http://rachbelaid.com/tag/awesome.html">awesome</a></i> 
-
-
+	
+    <div class="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "how-to-have-a-virtualenv-full-of-gems-and-npms.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://rach-belaid-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
     </div>
-
-  </footer>
-
- 
-    </article>
-
-<!-- /#posts-list -->
-
-</section><!-- /#content -->
+    
+</section>
         
 
         </div><!-- container -->

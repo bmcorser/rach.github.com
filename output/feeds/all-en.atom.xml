@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/all-en.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-12T00:00:00+01:00</updated><entry><title>How to use the subtree merge strategy</title><link href="http://rachbelaid.com/how-to-use-the-subtree-merge-strategy.html" rel="alternate"></link><updated>2012-08-12T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-12:how-to-use-the-subtree-merge-strategy.html</id><summary type="html">&lt;p&gt;There are situations where you want to include contents in your project from an independently developed project. You can just pull from the other project as long as there are no conflicting paths.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/all-en.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-15T00:00:00+01:00</updated><entry><title>How to have a virtualenv full of gems and npms</title><link href="http://rachbelaid.com/how-to-have-a-virtualenv-full-of-gems-and-npms.html" rel="alternate"></link><updated>2012-08-15T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-15:how-to-have-a-virtualenv-full-of-gems-and-npms.html</id><summary type="html">&lt;p&gt;Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like Compass , Chef , lessc&lt;/p&gt;
+&lt;p&gt;And when you are used to work with virtual environment the last thing that you want to do it’s starting to install lib globaly.&lt;/p&gt;
+&lt;p&gt;So stick the few lines below at the bottom of virtualenv’s ‘postactivate’ or at the enf of the ‘activate’ script.&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/Users/rachid/Dev/personal/blog-rach/src/python/virtualenv-gems-and-npms.rst&lt;/tt&gt;, line 16)&lt;/p&gt;
+&lt;p&gt;Content block expected for the &amp;quot;code-block&amp;quot; directive; none found.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+.. code-block:: none
+    export GEM_HOME=&amp;quot;$VIRTUAL_ENV/gems&amp;quot;
+    export GEM_PATH=&amp;quot;&amp;quot;
+    PATH=&amp;quot;$GEM_HOME/bin:$PATH&amp;quot;
+    export PATH
+    export npm_config_prefix=$VIRTUAL_ENV
+
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;And now inside your virtualenv, you can do :&lt;/p&gt;
+&lt;div class="system-message"&gt;
+&lt;p class="system-message-title"&gt;System Message: ERROR/3 (&lt;tt class="docutils"&gt;/Users/rachid/Dev/personal/blog-rach/src/python/virtualenv-gems-and-npms.rst&lt;/tt&gt;, line 25)&lt;/p&gt;
+&lt;p&gt;Content block expected for the &amp;quot;code-block&amp;quot; directive; none found.&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+.. code-block:: none
+    gem install &amp;lt;package&amp;gt;
+    npm -g install  &amp;lt;package&amp;gt;
+
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;All yours gems/npms won’t be installed globaly but inside the vitualenv and will be deleted with it.&lt;/p&gt;
+</summary><category term="virtualenv"></category><category term="ruby"></category><category term="nodejs"></category></entry><entry><title>How to use the subtree merge strategy</title><link href="http://rachbelaid.com/how-to-use-the-subtree-merge-strategy.html" rel="alternate"></link><updated>2012-08-12T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-12:how-to-use-the-subtree-merge-strategy.html</id><summary type="html">&lt;p&gt;There are situations where you want to include contents in your project from an independently developed project. You can just pull from the other project as long as there are no conflicting paths.&lt;/p&gt;
 &lt;p&gt;The problematic case is when there are conflicting files. Potential candidates are Makefiles and other standard filenames. You could merge these files but probably you do not want to. A better solution for this problem can be to merge the project as its own subdirectory. This is not supported by the recursive merge strategy, so just pulling won’t work.&lt;/p&gt;
 &lt;p&gt;What you want is the subtree merge strategy, which helps you in such a situation.&lt;/p&gt;
 &lt;p&gt;In this example, let’s say you have the repository at /path/to/B (but it can be an URL as well, if you want). You want to merge the master branch of that repository to the dir-B subdirectory in your current branch.&lt;/p&gt;
