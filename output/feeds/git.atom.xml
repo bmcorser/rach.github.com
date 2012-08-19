@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/all-en.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-19T00:00:00+01:00</updated><entry><title>How to github page with git subtree merge</title><link href="http://rachbelaid.com/how-to-github-page-with-git-subtree-merge.html" rel="alternate"></link><updated>2012-08-19T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-19:how-to-github-page-with-git-subtree-merge.html</id><summary type="html">&lt;p&gt;This post is about using &lt;tt class="docutils literal"&gt;git subtree merge&lt;/tt&gt; to have a branch a subset of an other branch.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/git.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-19T00:00:00+01:00</updated><entry><title>How to github page with git subtree merge</title><link href="http://rachbelaid.com/how-to-github-page-with-git-subtree-merge.html" rel="alternate"></link><updated>2012-08-19T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-19:how-to-github-page-with-git-subtree-merge.html</id><summary type="html">&lt;p&gt;This post is about using &lt;tt class="docutils literal"&gt;git subtree merge&lt;/tt&gt; to have a branch a subset of an other branch.
 The Github will be a use case and a way to illustrate this feature, there is probably others
 way to accomplish the same result.&lt;/p&gt;
 &lt;p&gt;Github have a way for hosting and serve static web page,
@@ -86,18 +86,4 @@ We are going to merge the &lt;tt class="docutils literal"&gt;output&lt;/tt&gt; f
 &lt;p class="last"&gt;Alternative to create an empty branch
 true | git mktree | xargs git commit-tree | xargs git branch master&lt;/p&gt;
 &lt;/div&gt;
-</summary><category term="github"></category><category term="git"></category><category term="pelican"></category></entry><entry><title>How to have a virtualenv full of gems and npms</title><link href="http://rachbelaid.com/how-to-have-a-virtualenv-full-of-gems-and-npms.html" rel="alternate"></link><updated>2012-08-15T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-15:how-to-have-a-virtualenv-full-of-gems-and-npms.html</id><summary type="html">&lt;p&gt;Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like Compass , Chef , lessc&lt;/p&gt;
-&lt;p&gt;And when you are used to work with virtual environment the last thing that you want to do it’s starting to install lib globaly.&lt;/p&gt;
-&lt;p&gt;So stick the few lines below at the bottom of virtualenv’s ‘postactivate’ or at the enf of the ‘activate’ script.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;export GEM_HOME=&amp;quot;$VIRTUAL_ENV/gems&amp;quot;
-export GEM_PATH=&amp;quot;&amp;quot;
-PATH=&amp;quot;$GEM_HOME/bin:$PATH&amp;quot;
-export PATH
-export npm_config_prefix=$VIRTUAL_ENV
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;And now inside your virtualenv, you can do :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;gem install &amp;lt;package&amp;gt;
-npm -g install  &amp;lt;package&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;All yours gems/npms won’t be installed globaly but inside the vitualenv and will be deleted with it.&lt;/p&gt;
-</summary><category term="virtualenv"></category><category term="ruby"></category><category term="nodejs"></category></entry></feed>
+</summary><category term="github"></category><category term="git"></category><category term="pelican"></category></entry></feed>

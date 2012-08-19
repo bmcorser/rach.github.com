@@ -4592,6 +4592,9 @@ body {
 .navbar-inner > .container {
   width: 805px;
 }
+.entry-content a {
+  font-weight: 600;
+}
 .pull-right {
   float: right;
 }
