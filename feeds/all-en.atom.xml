@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/all-en.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-19T00:00:00+01:00</updated><entry><title>How to github page with git subtree merge</title><link href="http://rachbelaid.com/how-to-github-page-with-git-subtree-merge.html" rel="alternate"></link><updated>2012-08-19T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-19:how-to-github-page-with-git-subtree-merge.html</id><summary type="html">&lt;p&gt;This post is about using &lt;tt class="docutils literal"&gt;git subtree merge&lt;/tt&gt; to have a branch a subset of an other branch.
+<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/all-en.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-19T00:00:00+01:00</updated><entry><title>How to build a github page with git subtree merge</title><link href="http://rachbelaid.com/how-to-build-a-github-page-with-git-subtree-merge.html" rel="alternate"></link><updated>2012-08-19T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-19:how-to-build-a-github-page-with-git-subtree-merge.html</id><summary type="html">&lt;p&gt;This post is about using &lt;tt class="docutils literal"&gt;git subtree merge&lt;/tt&gt; to have a branch a subset of an other branch.
 The Github will be a use case and a way to illustrate this feature, there is probably others
 way to accomplish the same result.&lt;/p&gt;
 &lt;p&gt;Github have a way for hosting and serve static web page,
@@ -10,7 +10,7 @@ on the official doc about &lt;a class="reference external" href="http://pages.gi
 But if are interrest to build a custom page that I personnaly found most of my answer
 on their &lt;a class="reference external" href="https://help.github.com/categories/20/articles"&gt;help page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Let's do a quick summarize..&lt;/p&gt;
-&lt;p&gt;There is 3 type of Github page : &lt;strong&gt;User&lt;/strong&gt;, &lt;strong&gt;Organisation&lt;/strong&gt; and &lt;strong&gt;Project page&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There is 3 type of Github page : &lt;em&gt;User&lt;/em&gt;, &lt;em&gt;Organisation&lt;/em&gt; and &lt;em&gt;Project&lt;/em&gt; page&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;The User and Organisation page share the same behavior :&lt;/p&gt;
 &lt;blockquote&gt;
@@ -39,9 +39,9 @@ And the repo stay the same as the project one.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Now it's there that the problem arrive, maybe for any reason you don't want to have
-your static website in the root folder. In my concern, I m'using pelican which is
-a static blog generator and I want to have static output in a specific directory.
-I won't be Pelican specific but that could be your case if you are using anything to generate your page that you don't want to expose directly : Mardown, Less, Rst, Template ...&lt;/p&gt;
+your static website in the root folder. In my concern, I m'using &lt;a class="reference external" href="http://pelican.notmyidea.org/"&gt;Pelican&lt;/a&gt; to build this blog
+and I want to have the static website in a specific directory.
+I won't be specific to &lt;a class="reference external" href="http://pelican.notmyidea.org/"&gt;Pelican&lt;/a&gt; but that could be your case if you are using anything to generate your page and you don't want to expose directly : Mardown, Less, Rst, Template ...&lt;/p&gt;
 &lt;p&gt;Let's assume for the following that we are building a User Github Page and
 you have a source and output folder as below :&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
@@ -49,19 +49,20 @@ you have a source and output folder as below :&lt;/p&gt;
    |-&amp;gt; output
    |-&amp;gt; source
 &lt;/pre&gt;
-&lt;p&gt;That mean that we want to have the master branch centered on the output folder which a perfect use case for subtree merg.Like say the doc on git subtree merge :&lt;/p&gt;
+&lt;p&gt;That implies that we want to have the master branch focused on the output folder which a perfect use case for subtree merge.
+The doc on git subtree merge say:&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;em&gt;&amp;quot;There are situations where you want to include contents in your project
  from an independently developed project.
 You can just pull from the other project as long as there are no conflicting paths.&lt;/em&gt;&lt;/div&gt;
 &lt;div class="line"&gt;...&lt;/div&gt;
-&lt;div class="line"&gt;&lt;em&gt;What you want is the subtree merge strategy, which helps you in such a situation.&amp;quot;&lt;/em&gt;&lt;/div&gt;
-&lt;div class="line"&gt;&lt;a class="reference external" href="http://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html"&gt;reference&lt;/a&gt;&lt;/div&gt;
+&lt;div class="line"&gt;&lt;em&gt;What you want is the subtree merge strategy, which helps you in such a situation.&amp;quot;&lt;/em&gt;
+&lt;a class="reference external" href="http://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html"&gt;ref&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;In our case we are not going to pull for an other project but the idea is the same.&lt;/p&gt;
-&lt;p&gt;In other words, we want to have the root of &lt;tt class="docutils literal"&gt;master&lt;/tt&gt; branch pointing the &lt;tt class="docutils literal"&gt;output&lt;/tt&gt;
+&lt;p&gt;In our case we are not going to pull for an other project but the idea is the same.
+Or in other words, we want to have the root of &lt;tt class="docutils literal"&gt;master&lt;/tt&gt; branch pointing the &lt;tt class="docutils literal"&gt;output&lt;/tt&gt;
 of the &lt;tt class="docutils literal"&gt;source&lt;/tt&gt; branch and being easy to update.
-We are going to merge the &lt;tt class="docutils literal"&gt;output&lt;/tt&gt; folder of the &lt;tt class="docutils literal"&gt;source&lt;/tt&gt; branch of same repository into the &lt;tt class="docutils literal"&gt;master&lt;/tt&gt; (your current branch).&lt;/p&gt;
+We are going to merge the &lt;tt class="docutils literal"&gt;output&lt;/tt&gt; folder of the &lt;tt class="docutils literal"&gt;source&lt;/tt&gt; branch of same repository into the &lt;tt class="docutils literal"&gt;master&lt;/tt&gt;.&lt;/p&gt;
 &lt;p&gt;Here is the command sequence you need:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;(source)$ git checkout --orphan master
 (master)$ git rm -rf .
@@ -76,15 +77,20 @@ We are going to merge the &lt;tt class="docutils literal"&gt;output&lt;/tt&gt; f
 &lt;li&gt;Read folder &lt;tt class="docutils literal"&gt;output&lt;/tt&gt; of &lt;tt class="docutils literal"&gt;source&lt;/tt&gt; branch into the current directory.&lt;/li&gt;
 &lt;li&gt;commit the merge .&lt;/li&gt;
 &lt;/ol&gt;
+&lt;p&gt;Enjoy your website on &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;http://username.github.com&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;div class="note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p&gt;For maintaining the result,  merges using &amp;quot;subtree&amp;quot;&lt;/p&gt;
-&lt;p class="last"&gt;git pull -s subtree origin source&lt;/p&gt;
+&lt;pre class="last literal-block"&gt;
+git pull -s subtree origin source
+&lt;/pre&gt;
 &lt;/div&gt;
 &lt;div class="note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
-&lt;p class="last"&gt;Alternative to create an empty branch
-true | git mktree | xargs git commit-tree | xargs git branch master&lt;/p&gt;
+&lt;p&gt;Alternative to create an empty branch&lt;/p&gt;
+&lt;pre class="last literal-block"&gt;
+true | git mktree | xargs git commit-tree | xargs git branch master
+&lt;/pre&gt;
 &lt;/div&gt;
 </summary><category term="github"></category><category term="git"></category><category term="pelican"></category></entry><entry><title>How to have a virtualenv full of gems and npms</title><link href="http://rachbelaid.com/how-to-have-a-virtualenv-full-of-gems-and-npms.html" rel="alternate"></link><updated>2012-08-15T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-15:how-to-have-a-virtualenv-full-of-gems-and-npms.html</id><summary type="html">&lt;p&gt;Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like Compass , Chef , lessc&lt;/p&gt;
 &lt;p&gt;And when you are used to work with virtual environment the last thing that you want to do it’s starting to install lib globaly.&lt;/p&gt;

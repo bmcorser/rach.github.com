@@ -55,7 +55,7 @@
                 <ul class="nav pull-right">
                    
                     
-                    <li><a href="http://rachbelaid.com/about-me.html"  > Me</a></li>
+                    <li><a href="/pages/about-me.html"  > Me</a></li>
                     
                     <li><a href="https://twitter.com/rachbelaid"  target="_blank"  > Twitter</a></li>
                     
@@ -89,8 +89,8 @@
 <section id="content" class="body">
   <header>
     <h3 class="entry-title">
-      <a href="how-to-github-page-with-git-subtree-merge.html" rel="bookmark"
-         title="Permalink to How to github page with git subtree merge">How to github page with git subtree merge</a></h3>
+      <a href="how-to-build-a-github-page-with-git-subtree-merge.html" rel="bookmark"
+         title="Permalink to How to build a github page with git subtree merge">How to build a github page with git subtree merge</a></h3>
   </header>
 
   <div class="entry-content">
@@ -105,7 +105,7 @@ on the official doc about <a class="reference external" href="http://pages.githu
 But if are interrest to build a custom page that I personnaly found most of my answer
 on their <a class="reference external" href="https://help.github.com/categories/20/articles">help page</a>.</p>
 <p>Let's do a quick summarize..</p>
-<p>There is 3 type of Github page : <strong>User</strong>, <strong>Organisation</strong> and <strong>Project page</strong></p>
+<p>There is 3 type of Github page : <em>User</em>, <em>Organisation</em> and <em>Project</em> page</p>
 <ul>
 <li><p class="first">The User and Organisation page share the same behavior :</p>
 <blockquote>
@@ -134,9 +134,9 @@ And the repo stay the same as the project one.</p>
 </li>
 </ul>
 <p>Now it's there that the problem arrive, maybe for any reason you don't want to have
-your static website in the root folder. In my concern, I m'using pelican which is
-a static blog generator and I want to have static output in a specific directory.
-I won't be Pelican specific but that could be your case if you are using anything to generate your page that you don't want to expose directly : Mardown, Less, Rst, Template ...</p>
+your static website in the root folder. In my concern, I m'using <a class="reference external" href="http://pelican.notmyidea.org/">Pelican</a> to build this blog
+and I want to have the static website in a specific directory.
+I won't be specific to <a class="reference external" href="http://pelican.notmyidea.org/">Pelican</a> but that could be your case if you are using anything to generate your page and you don't want to expose directly : Mardown, Less, Rst, Template ...</p>
 <p>Let's assume for the following that we are building a User Github Page and
 you have a source and output folder as below :</p>
 <pre class="literal-block">
@@ -144,19 +144,20 @@ you have a source and output folder as below :</p>
    |-&gt; output
    |-&gt; source
 </pre>
-<p>That mean that we want to have the master branch centered on the output folder which a perfect use case for subtree merg.Like say the doc on git subtree merge :</p>
+<p>That implies that we want to have the master branch focused on the output folder which a perfect use case for subtree merge.
+The doc on git subtree merge say:</p>
 <div class="line-block">
 <div class="line"><em>&quot;There are situations where you want to include contents in your project
  from an independently developed project.
 You can just pull from the other project as long as there are no conflicting paths.</em></div>
 <div class="line">...</div>
-<div class="line"><em>What you want is the subtree merge strategy, which helps you in such a situation.&quot;</em></div>
-<div class="line"><a class="reference external" href="http://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html">reference</a></div>
+<div class="line"><em>What you want is the subtree merge strategy, which helps you in such a situation.&quot;</em>
+<a class="reference external" href="http://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html">ref</a></div>
 </div>
-<p>In our case we are not going to pull for an other project but the idea is the same.</p>
-<p>In other words, we want to have the root of <tt class="docutils literal">master</tt> branch pointing the <tt class="docutils literal">output</tt>
+<p>In our case we are not going to pull for an other project but the idea is the same.
+Or in other words, we want to have the root of <tt class="docutils literal">master</tt> branch pointing the <tt class="docutils literal">output</tt>
 of the <tt class="docutils literal">source</tt> branch and being easy to update.
-We are going to merge the <tt class="docutils literal">output</tt> folder of the <tt class="docutils literal">source</tt> branch of same repository into the <tt class="docutils literal">master</tt> (your current branch).</p>
+We are going to merge the <tt class="docutils literal">output</tt> folder of the <tt class="docutils literal">source</tt> branch of same repository into the <tt class="docutils literal">master</tt>.</p>
 <p>Here is the command sequence you need:</p>
 <div class="highlight"><pre>(source)$ git checkout --orphan master
 (master)$ git rm -rf .
@@ -171,15 +172,20 @@ We are going to merge the <tt class="docutils literal">output</tt> folder of the
 <li>Read folder <tt class="docutils literal">output</tt> of <tt class="docutils literal">source</tt> branch into the current directory.</li>
 <li>commit the merge .</li>
 </ol>
+<p>Enjoy your website on <tt class="docutils literal"><span class="pre">http://username.github.com</span></tt></p>
 <div class="note">
 <p class="first admonition-title">Note</p>
 <p>For maintaining the result,  merges using &quot;subtree&quot;</p>
-<p class="last">git pull -s subtree origin source</p>
+<pre class="last literal-block">
+git pull -s subtree origin source
+</pre>
 </div>
 <div class="note">
 <p class="first admonition-title">Note</p>
-<p class="last">Alternative to create an empty branch
-true | git mktree | xargs git commit-tree | xargs git branch master</p>
+<p>Alternative to create an empty branch</p>
+<pre class="last literal-block">
+true | git mktree | xargs git commit-tree | xargs git branch master
+</pre>
 </div>
 
   </div><!-- /.entry-content -->
@@ -209,15 +215,14 @@ true | git mktree | xargs git commit-tree | xargs git branch master</p>
 
 	 <i class="icon-twitter offset"></i>
  	<span >
- 		<a target="_blank" href="https://twitter.com/intent/tweet?original_referer=http://rachbelaid.com&related=rachbelaid&via=rachbelaid&text=Check this&url=http://rachbelaid.com/how-to-github-page-with-git-subtree-merge.html">Tweet me</a>
+ 		<a target="_blank" href="https://twitter.com/intent/tweet?original_referer=http://rachbelaid.com&related=rachbelaid&via=rachbelaid&text=Check this&url=http://rachbelaid.com/how-to-build-a-github-page-with-git-subtree-merge.html">Tweet me</a>
 	</span>
     
     <div class="pull-right">
-    	tags: <i><a href="http://rachbelaid.com/tag/github.html">github</a></i>, 
-<i><a href="http://rachbelaid.com/tag/git.html">git</a></i> 
+    	<i class="icon-tags"></i> <span><i><a href="http://rachbelaid.com/tag/github.html">github</a></i>, 
+<i><a href="http://rachbelaid.com/tag/git.html">git</a></i>, 
 <i><a href="http://rachbelaid.com/tag/pelican.html">pelican</a></i> 
-
-
+ </span>
     </div>
 
   </footer>
@@ -228,7 +233,7 @@ true | git mktree | xargs git commit-tree | xargs git branch master</p>
     <div class="comments">
       <div id="disqus_thread"></div>
       <script type="text/javascript">
-        var disqus_identifier = "how-to-github-page-with-git-subtree-merge.html";
+        var disqus_identifier = "how-to-build-a-github-page-with-git-subtree-merge.html";
         (function() {
         var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
         dsq.src = 'http://rach-belaid-blog.disqus.com/embed.js';
