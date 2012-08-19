@@ -1,5 +1,5 @@
-How to github page with git subtree merge 
-#########################################
+How to build a github page with git subtree merge 
+#################################################
 
 :date: 2012-08-19 
 :tags: github, git, pelican
@@ -21,7 +21,7 @@ on their `help page <https://help.github.com/categories/20/articles>`_.
 
 Let's do a quick summarize..
 
-There is 3 type of Github page : **User**, **Organisation** and **Project page**
+There is 3 type of Github page : *User*, *Organisation* and *Project* page
 
 - The User and Organisation page share the same behavior :
 
@@ -54,9 +54,9 @@ There is 3 type of Github page : **User**, **Organisation** and **Project page**
 
 
 Now it's there that the problem arrive, maybe for any reason you don't want to have
-your static website in the root folder. In my concern, I m'using pelican which is 
-a static blog generator and I want to have static output in a specific directory.
-I won't be Pelican specific but that could be your case if you are using anything to generate your page that you don't want to expose directly : Mardown, Less, Rst, Template ... 
+your static website in the root folder. In my concern, I m'using `Pelican <http://pelican.notmyidea.org/>`_ to build this blog 
+and I want to have the static website in a specific directory.
+I won't be specific to `Pelican <http://pelican.notmyidea.org/>`_ but that could be your case if you are using anything to generate your page and you don't want to expose directly : Mardown, Less, Rst, Template ... 
 
 Let's assume for the following that we are building a User Github Page and
 you have a source and output folder as below :
@@ -68,20 +68,22 @@ you have a source and output folder as below :
            |-> source
         
 
-That mean that we want to have the master branch centered on the output folder which a perfect use case for subtree merg.Like say the doc on git subtree merge :
+That implies that we want to have the master branch focused on the output folder which a perfect use case for subtree merge. 
+The doc on git subtree merge say:
 
 | *"There are situations where you want to include contents in your project
   from an independently developed project. 
  You can just pull from the other project as long as there are no conflicting paths.*
 | ...
 | *What you want is the subtree merge strategy, which helps you in such a situation."*
-| `reference <http://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html>`_
+  `ref <http://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html>`_
 
-In our case we are not going to pull for an other project but the idea is the same.
-
-In other words, we want to have the root of ``master`` branch pointing the ``output`` 
+  
+  
+In our case we are not going to pull for an other project but the idea is the same. 
+Or in other words, we want to have the root of ``master`` branch pointing the ``output`` 
 of the ``source`` branch and being easy to update.
-We are going to merge the ``output`` folder of the ``source`` branch of same repository into the ``master`` (your current branch).
+We are going to merge the ``output`` folder of the ``source`` branch of same repository into the ``master``.
 
 Here is the command sequence you need: 
 
@@ -93,15 +95,23 @@ Here is the command sequence you need:
         (master)$ git read-tree -m -u source:output
         (master)$ git commit -m "Merge folder output of branch source"
 
+
 1. Create an orphan branch, which is a branch without parent
 2. Remove any previously tracked element
 3. Prepare for the later step to record the result as a merge.
 4. Read folder ``output`` of ``source`` branch into the current directory.
 5. commit the merge .
 
+Enjoy your website on ``http://username.github.com``
+
 .. note:: For maintaining the result,  merges using "subtree" 
       
-        git pull -s subtree origin source
+        ::
+
+                 git pull -s subtree origin source
 
 .. note::  Alternative to create an empty branch
-        true | git mktree | xargs git commit-tree | xargs git branch master
+
+        ::
+
+                true | git mktree | xargs git commit-tree | xargs git branch master

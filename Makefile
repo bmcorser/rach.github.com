@@ -33,7 +33,7 @@ html: clean $(OUTPUTDIR)/index.html
 	@echo 'Done'
 
 $(OUTPUTDIR)/%.html:
-	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(CONFFILE)
+	$(PELICAN) -s $(CONFFILE) -v
 
 clean:
 	rm -fr $(OUTPUTDIR)

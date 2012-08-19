@@ -12,6 +12,7 @@ SITETITLE= u"Rach Belaid's blog"
 SITENAME = u"There's a snake in my boot!"
 SITESUBTITLE = u"Python Charmer, Git Lover, OpenSource Admirer, Technology Dreamer"
 SITEURL = 'http://rachbelaid.com'
+BITLY_SITEURL = SITEURL
 RELATIVE_URLS = False
 PAGE_DIR='pages'
 
@@ -28,7 +29,7 @@ DEFAULT_LANG='en'
 # Name , link, new page
 SOCIAL =  (
 
-     ('Me', '%s/about-me.html'% SITEURL , False  ),
+     ('Me', '/pages/about-me.html' , False  ),
      ('Twitter', 'https://twitter.com/rachbelaid', True),
     ('Linkedin', 'http://uk.linkedin.com/in/rachbelaid', True),
     ('Github', 'http://github.com/rach/', True),
