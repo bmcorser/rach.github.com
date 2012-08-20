@@ -6,36 +6,36 @@ How to build a github page with git subtree merge
 :category: git
 :author: Rach Belaid
 
-This post is about using ``git subtree merge`` to have a branch a subset of an other branch. 
-The Github will be a use case and a way to illustrate this feature, there is probably others
-way to accomplish the same result.
+This post is about using ``git subtree merge`` to have a branch that is a subset of another branch. 
+Github will be a use case and act as a way to illustrate this feature, there are probably other
+ways to accomplish the same result.
 
-Github have a way for hosting and serve static web page,
-which is very pratical if you need to create a page for your opensource project
-or create a blog like this one that you are reading now!
+Github has a way for users to host and serve static web pages
+which is very pratical if you need to create a page for your open source project
+or create a blog like the one that you are reading now!
 
-If you never hear about Github Page then the first place to start is 
-on the official doc about `Github page <http://pages.github.com/>`_.
-But if are interrest to build a custom page that I personnaly found most of my answer
+If you have never heard about Github Pages then the first place to start is, of course,
+the official docs: `Github Pages <http://pages.github.com/>`_.
+But if you are interested in building a custom page, I found most of my answers
 on their `help page <https://help.github.com/categories/20/articles>`_.
 
-Let's do a quick summarize..
+A quick summary ...
 
-There is 3 type of Github page : *User*, *Organisation* and *Project* page
+There is 3 types of Github page: *User* page, *Organisation* page and *Project* page
 
 - The User and Organisation page share the same behavior :
 
-        The static page is read from the ``master`` branch and from the repo called ``username.github.com`` 
+        The static page is read from the ``master`` branch in the repo called ``username.github.com`` 
         and for organisation ``organisation.github.com``.
 
-        Which means you should have some something like that for the repo url for a User Page:
+        Which means you should have some something like this for the repo url for a User Page:
 
         ::
 
                 [SSH]     git@github.com:username/username.github.com.git 
                 [HTTPS]   https://github.com/username/username.github.com.git
 
-        or for organisation :
+        For organisation:
 
         ::
 
@@ -45,21 +45,20 @@ There is 3 type of Github page : *User*, *Organisation* and *Project* page
         The website will be accesible via ``username.github.com`` or ``organisation.github.com`` and
         it will read the index.html inside the root folder.
 
-        eg: You can found the repo of this blog on  https://github.com/rach/rach.github.com and access to it via http://rach.github.com/
+        eg: You can find the repo for this blog on https://github.com/rach/rach.github.com and view it as web page via http://rach.github.com/
 
-- Project Page are slightly different :
+- The Project Page is slightly different :
 
-        The static page is read from the ``gh-pages`` branch and access the website via ``username.github.com/projectname``.
-        And the repo stay the same as the project one.
+        Static pages are read from the ``gh-pages`` branch in your ``projectname`` repo and access to the website is via ``username.github.com/projectname``.
 
 
-Now it's there that the problem arrive, maybe for any reason you don't want to have
-your static website in the root folder. In my concern, I m'using `Pelican <http://pelican.notmyidea.org/>`_ to build this blog 
-and I want to have the static website in a specific directory.
-I won't be specific to `Pelican <http://pelican.notmyidea.org/>`_ but that could be your case if you are using anything to generate your page and you don't want to expose directly : Mardown, Less, Rst, Template ... 
+Now we have established the problem, maybe for some reason you don't want to have
+your static website in the root folder. In my case, I'm using `Pelican <http://pelican.notmyidea.org/>`_ to build this blog 
+and I want to have the static website in a directory that I specify.
+I won't be specific to `Pelican <http://pelican.notmyidea.org/>`_ so if you are using anything to generate your pages and you don't want to expose it directly (Markdown, Less, Rst, Template), this should remain informative.
 
 Let's assume for the following that we are building a User Github Page and
-you have a source and output folder as below :
+you have a source and output folder as below:
 
 ::
 
@@ -68,7 +67,7 @@ you have a source and output folder as below :
            |-> source
         
 
-That implies that we want to have the master branch focused on the output folder which a perfect use case for subtree merge. 
+Here, we would like to have the master branch focused on the output folder so it will be served by Github Pages. A perfect use case for subtree merge. 
 The doc on git subtree merge say:
 
 | *"There are situations where you want to include contents in your project
@@ -80,12 +79,12 @@ The doc on git subtree merge say:
 
   
   
-In our case we are not going to pull for an other project but the idea is the same. 
+In our case we are not going to pull from another project, but the idea is the same. 
 Or in other words, we want to have the root of ``master`` branch pointing the ``output`` 
-of the ``source`` branch and being easy to update.
-We are going to merge the ``output`` folder of the ``source`` branch of same repository into the ``master``.
+of the ``source`` branch and for it to be easy to update.
+Hence, we are going to merge the ``output`` folder of the ``source`` branch of same repository into the ``master``.
 
-Here is the command sequence you need: 
+Here is the command sequence I used: 
 
 .. code-block:: none
 
@@ -96,11 +95,11 @@ Here is the command sequence you need:
         (master)$ git commit -m "Merge folder output of branch source"
 
 
-1. Create an orphan branch, which is a branch without parent
-2. Remove any previously tracked element
-3. Prepare for the later step to record the result as a merge.
-4. Read folder ``output`` of ``source`` branch into the current directory.
-5. commit the merge .
+1. Create an orphan branch, which is a branch without a parent.
+2. Remove any previously tracked element.
+3. Prepare for the later step which will record the result as a merge.
+4. Read folder ``output`` of branch ``source`` into the current directory.
+5. Commit the merge.
 
 Enjoy your website on ``http://username.github.com``
 
