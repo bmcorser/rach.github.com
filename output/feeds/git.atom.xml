@@ -1,55 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/git.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-19T00:00:00+01:00</updated><entry><title>How to build a github page with git subtree merge</title><link href="http://rachbelaid.com/how-to-build-a-github-page-with-git-subtree-merge.html" rel="alternate"></link><updated>2012-08-19T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-19:how-to-build-a-github-page-with-git-subtree-merge.html</id><summary type="html">&lt;p&gt;This post is about using &lt;tt class="docutils literal"&gt;git subtree merge&lt;/tt&gt; to have a branch a subset of an other branch.
-The Github will be a use case and a way to illustrate this feature, there is probably others
-way to accomplish the same result.&lt;/p&gt;
-&lt;p&gt;Github have a way for hosting and serve static web page,
-which is very pratical if you need to create a page for your opensource project
-or create a blog like this one that you are reading now!&lt;/p&gt;
-&lt;p&gt;If you never hear about Github Page then the first place to start is
-on the official doc about &lt;a class="reference external" href="http://pages.github.com/"&gt;Github page&lt;/a&gt;.
-But if are interrest to build a custom page that I personnaly found most of my answer
+<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/git.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-19T00:00:00+01:00</updated><entry><title>How to build a github page with git subtree merge</title><link href="http://rachbelaid.com/how-to-build-a-github-page-with-git-subtree-merge.html" rel="alternate"></link><updated>2012-08-19T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-19:how-to-build-a-github-page-with-git-subtree-merge.html</id><summary type="html">&lt;p&gt;This post is about using &lt;tt class="docutils literal"&gt;git subtree merge&lt;/tt&gt; to have a branch that is a subset of another branch.
+Github will be a use case and act as a way to illustrate this feature, there are probably other
+ways to accomplish the same result.&lt;/p&gt;
+&lt;p&gt;Github has a way for users to host and serve static web pages
+which is very pratical if you need to create a page for your open source project
+or create a blog like the one that you are reading now!&lt;/p&gt;
+&lt;p&gt;If you have never heard about Github Pages then the first place to start is, of course,
+the official docs: &lt;a class="reference external" href="http://pages.github.com/"&gt;Github Pages&lt;/a&gt;.
+But if you are interested in building a custom page, I found most of my answers
 on their &lt;a class="reference external" href="https://help.github.com/categories/20/articles"&gt;help page&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Let's do a quick summarize..&lt;/p&gt;
-&lt;p&gt;There is 3 type of Github page : &lt;em&gt;User&lt;/em&gt;, &lt;em&gt;Organisation&lt;/em&gt; and &lt;em&gt;Project&lt;/em&gt; page&lt;/p&gt;
+&lt;p&gt;A quick summary ...&lt;/p&gt;
+&lt;p&gt;There is 3 types of Github page: &lt;em&gt;User&lt;/em&gt; page, &lt;em&gt;Organisation&lt;/em&gt; page and &lt;em&gt;Project&lt;/em&gt; page&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p class="first"&gt;The User and Organisation page share the same behavior :&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;The static page is read from the &lt;tt class="docutils literal"&gt;master&lt;/tt&gt; branch and from the repo called &lt;tt class="docutils literal"&gt;username.github.com&lt;/tt&gt;
+&lt;p&gt;The static page is read from the &lt;tt class="docutils literal"&gt;master&lt;/tt&gt; branch in the repo called &lt;tt class="docutils literal"&gt;username.github.com&lt;/tt&gt;
 and for organisation &lt;tt class="docutils literal"&gt;organisation.github.com&lt;/tt&gt;.&lt;/p&gt;
-&lt;p&gt;Which means you should have some something like that for the repo url for a User Page:&lt;/p&gt;
+&lt;p&gt;Which means you should have some something like this for the repo url for a User Page:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 [SSH]     git&amp;#64;github.com:username/username.github.com.git
 [HTTPS]   https://github.com/username/username.github.com.git
 &lt;/pre&gt;
-&lt;p&gt;or for organisation :&lt;/p&gt;
+&lt;p&gt;For organisation:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 [SSH]     git&amp;#64;github.com:organisation/organisation.github.com.git
 [HTTPS]   https://github.com/organisation/organisation.github.com.git
 &lt;/pre&gt;
 &lt;p&gt;The website will be accesible via &lt;tt class="docutils literal"&gt;username.github.com&lt;/tt&gt; or &lt;tt class="docutils literal"&gt;organisation.github.com&lt;/tt&gt; and
 it will read the index.html inside the root folder.&lt;/p&gt;
-&lt;p&gt;eg: You can found the repo of this blog on  &lt;a class="reference external" href="https://github.com/rach/rach.github.com"&gt;https://github.com/rach/rach.github.com&lt;/a&gt; and access to it via &lt;a class="reference external" href="http://rach.github.com/"&gt;http://rach.github.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;eg: You can find the repo for this blog on &lt;a class="reference external" href="https://github.com/rach/rach.github.com"&gt;https://github.com/rach/rach.github.com&lt;/a&gt; and view it as web page via &lt;a class="reference external" href="http://rach.github.com/"&gt;http://rach.github.com/&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p class="first"&gt;Project Page are slightly different :&lt;/p&gt;
+&lt;li&gt;&lt;p class="first"&gt;The Project Page is slightly different :&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;The static page is read from the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;gh-pages&lt;/span&gt;&lt;/tt&gt; branch and access the website via &lt;tt class="docutils literal"&gt;username.github.com/projectname&lt;/tt&gt;.
-And the repo stay the same as the project one.&lt;/p&gt;
+&lt;p&gt;Static pages are read from the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;gh-pages&lt;/span&gt;&lt;/tt&gt; branch in your &lt;tt class="docutils literal"&gt;projectname&lt;/tt&gt; repo and access to the website is via &lt;tt class="docutils literal"&gt;username.github.com/projectname&lt;/tt&gt;.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Now it's there that the problem arrive, maybe for any reason you don't want to have
-your static website in the root folder. In my concern, I m'using &lt;a class="reference external" href="http://pelican.notmyidea.org/"&gt;Pelican&lt;/a&gt; to build this blog
-and I want to have the static website in a specific directory.
-I won't be specific to &lt;a class="reference external" href="http://pelican.notmyidea.org/"&gt;Pelican&lt;/a&gt; but that could be your case if you are using anything to generate your page and you don't want to expose directly : Mardown, Less, Rst, Template ...&lt;/p&gt;
+&lt;p&gt;Now we have established the problem, maybe for some reason you don't want to have
+your static website in the root folder. In my case, I'm using &lt;a class="reference external" href="http://pelican.notmyidea.org/"&gt;Pelican&lt;/a&gt; to build this blog
+and I want to have the static website in a directory that I specify.
+I won't be specific to &lt;a class="reference external" href="http://pelican.notmyidea.org/"&gt;Pelican&lt;/a&gt; so if you are using anything to generate your pages and you don't want to expose it directly (Markdown, Less, Rst, Template), this should remain informative.&lt;/p&gt;
 &lt;p&gt;Let's assume for the following that we are building a User Github Page and
-you have a source and output folder as below :&lt;/p&gt;
+you have a source and output folder as below:&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 (root)
    |-&amp;gt; output
    |-&amp;gt; source
 &lt;/pre&gt;
-&lt;p&gt;That implies that we want to have the master branch focused on the output folder which a perfect use case for subtree merge.
+&lt;p&gt;Here, we would like to have the master branch focused on the output folder so it will be served by Github Pages. A perfect use case for subtree merge.
 The doc on git subtree merge say:&lt;/p&gt;
 &lt;div class="line-block"&gt;
 &lt;div class="line"&gt;&lt;em&gt;&amp;quot;There are situations where you want to include contents in your project
@@ -59,11 +58,11 @@ You can just pull from the other project as long as there are no conflicting pat
 &lt;div class="line"&gt;&lt;em&gt;What you want is the subtree merge strategy, which helps you in such a situation.&amp;quot;&lt;/em&gt;
 &lt;a class="reference external" href="http://www.kernel.org/pub/software/scm/git/docs/howto/using-merge-subtree.html"&gt;ref&lt;/a&gt;&lt;/div&gt;
 &lt;/div&gt;
-&lt;p&gt;In our case we are not going to pull for an other project but the idea is the same.
+&lt;p&gt;In our case we are not going to pull from another project, but the idea is the same.
 Or in other words, we want to have the root of &lt;tt class="docutils literal"&gt;master&lt;/tt&gt; branch pointing the &lt;tt class="docutils literal"&gt;output&lt;/tt&gt;
-of the &lt;tt class="docutils literal"&gt;source&lt;/tt&gt; branch and being easy to update.
-We are going to merge the &lt;tt class="docutils literal"&gt;output&lt;/tt&gt; folder of the &lt;tt class="docutils literal"&gt;source&lt;/tt&gt; branch of same repository into the &lt;tt class="docutils literal"&gt;master&lt;/tt&gt;.&lt;/p&gt;
-&lt;p&gt;Here is the command sequence you need:&lt;/p&gt;
+of the &lt;tt class="docutils literal"&gt;source&lt;/tt&gt; branch and for it to be easy to update.
+Hence, we are going to merge the &lt;tt class="docutils literal"&gt;output&lt;/tt&gt; folder of the &lt;tt class="docutils literal"&gt;source&lt;/tt&gt; branch of same repository into the &lt;tt class="docutils literal"&gt;master&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;Here is the command sequence I used:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;(source)$ git checkout --orphan master
 (master)$ git rm -rf .
 (master)$ git merge -s ours --no-commit origin/source
@@ -71,11 +70,11 @@ We are going to merge the &lt;tt class="docutils literal"&gt;output&lt;/tt&gt; f
 (master)$ git commit -m &amp;quot;Merge folder output of branch source&amp;quot;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;ol class="arabic simple"&gt;
-&lt;li&gt;Create an orphan branch, which is a branch without parent&lt;/li&gt;
-&lt;li&gt;Remove any previously tracked element&lt;/li&gt;
-&lt;li&gt;Prepare for the later step to record the result as a merge.&lt;/li&gt;
-&lt;li&gt;Read folder &lt;tt class="docutils literal"&gt;output&lt;/tt&gt; of &lt;tt class="docutils literal"&gt;source&lt;/tt&gt; branch into the current directory.&lt;/li&gt;
-&lt;li&gt;commit the merge .&lt;/li&gt;
+&lt;li&gt;Create an orphan branch, which is a branch without a parent.&lt;/li&gt;
+&lt;li&gt;Remove any previously tracked element.&lt;/li&gt;
+&lt;li&gt;Prepare for the later step which will record the result as a merge.&lt;/li&gt;
+&lt;li&gt;Read folder &lt;tt class="docutils literal"&gt;output&lt;/tt&gt; of branch &lt;tt class="docutils literal"&gt;source&lt;/tt&gt; into the current directory.&lt;/li&gt;
+&lt;li&gt;Commit the merge.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Enjoy your website on &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;http://username.github.com&lt;/span&gt;&lt;/tt&gt;&lt;/p&gt;
 &lt;div class="note"&gt;

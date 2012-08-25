@@ -1,7 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/python.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-15T00:00:00+01:00</updated><entry><title>How to have a virtualenv full of gems and npms</title><link href="http://rachbelaid.com/how-to-have-a-virtualenv-full-of-gems-and-npms.html" rel="alternate"></link><updated>2012-08-15T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-15:how-to-have-a-virtualenv-full-of-gems-and-npms.html</id><summary type="html">&lt;p&gt;Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like Compass , Chef , lessc&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/python.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-25T00:00:00+01:00</updated><entry><title>Virtualenvwrapper for gems (ruby) and npm's</title><link href="http://rachbelaid.com/virtualenvwrapper-for-gems-ruby-and-npms.html" rel="alternate"></link><updated>2012-08-25T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-25:virtualenvwrapper-for-gems-ruby-and-npms.html</id><summary type="html">&lt;p&gt;In a previous post I explained to modify your activate script for being able
+to encapsulate node and ruby package (npm and gem).&lt;/p&gt;
+&lt;p&gt;I  wrote 2 tiny plugins for virtualenvwrapper for handling it automaticaly.&lt;/p&gt;
+&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;This post assume that you already using &lt;a class="reference external" href="http://www.doughellmann.com/projects/virtualenvwrapper/"&gt;virtualenvwrapper&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="virtualenvwrapper-gem-plugin"&gt;
+&lt;h2&gt;virtualenvwrapper gem plugin&lt;/h2&gt;
+&lt;p&gt;It happen more and more often that I m trying some ruby packages.
+Ruby has some very good apps like : &lt;a class="reference external" href="http://www.opscode.com/chef/"&gt;chef&lt;/a&gt;, &lt;a class="reference external" href="http://sass-lang.com/"&gt;sass&lt;/a&gt;,
+&lt;a class="reference external" href="http://progrium.com/localtunnel/"&gt;localtunnel&lt;/a&gt;, ...&lt;/p&gt;
+&lt;div class="section" id="download-and-install"&gt;
+&lt;h3&gt;Download and install:&lt;/h3&gt;
+&lt;p&gt;I encourage you to install it via &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install virtualenvwrapper.gem
+&lt;/pre&gt;
+&lt;p&gt;Otherwise you can download &lt;a class="reference external" href="http://pypi.python.org/pypi/virtualenvwrapper.gem"&gt;virtualenvwrapper.gem&lt;/a&gt; on pypi
+and installing by running&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+python setup.py install
+&lt;/pre&gt;
+&lt;div class="warning"&gt;
+&lt;p class="first admonition-title"&gt;Warning&lt;/p&gt;
+&lt;p&gt;Where to install it&lt;/p&gt;
+&lt;p class="last"&gt;This package cannot be installed inside a virtualenv but as to be globaly like virtualenvwrapper&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-to-use-it"&gt;
+&lt;h3&gt;How to use it&lt;/h3&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;::&lt;/dt&gt;
+&lt;dd&gt;mkvirtualenv test
+workon test #if not already inside
+gem install sass
+which sass #&amp;gt; $VIRTUAL_ENV/lib/gems/bin/sass&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="virtualenvwrapper-npm-plugin"&gt;
+&lt;h2&gt;virtualenvwrapper npm plugin&lt;/h2&gt;
+&lt;p&gt;Even if I'm not a fan of nodejs, I have to admit that the node's app
+for frontend processing and testing are awesome, eg : &lt;cite&gt;less &amp;lt;http://lesscss.org/&amp;gt;&lt;/cite&gt; _,
+&lt;a class="reference external" href="http://requirejs.org/docs/optimization.html"&gt;r.js&lt;/a&gt;, &lt;a class="reference external" href="http://busterjs.org/"&gt;buster.js&lt;/a&gt;&lt;/p&gt;
+&lt;div class="section" id="id1"&gt;
+&lt;h3&gt;Download and install:&lt;/h3&gt;
+&lt;p&gt;I encourage you to install it via &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install virtualenvwrapper.npm
+&lt;/pre&gt;
+&lt;p&gt;Otherwise you can download &lt;a class="reference external" href="http://pypi.python.org/pypi/virtualenvwrapper.npm"&gt;virtualenvwrapper.npm&lt;/a&gt; on pypi
+and installing by running&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+python setup.py install
+&lt;/pre&gt;
+&lt;div class="warning"&gt;
+&lt;p class="first admonition-title"&gt;Warning&lt;/p&gt;
+&lt;p&gt;Where to install it&lt;/p&gt;
+&lt;p class="last"&gt;This package cannot be installed inside a virtualenv but as to be installed globaly like virtualenvwrapper&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="id2"&gt;
+&lt;h3&gt;How to use it&lt;/h3&gt;
+&lt;dl class="docutils"&gt;
+&lt;dt&gt;::&lt;/dt&gt;
+&lt;dd&gt;mkvirtualenv test
+workon test #if not already inside
+npm install less
+which lessc #&amp;gt; $VIRTUAL_ENV/bin/lessc&lt;/dd&gt;
+&lt;/dl&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="virtualenvwrapper"></category><category term="virtualenv"></category><category term="ruby"></category><category term="nodejs"></category></entry><entry><title>Keep your gems and npms inside your virtualenv</title><link href="http://rachbelaid.com/keep-your-gems-and-npms-inside-your-virtualenv.html" rel="alternate"></link><updated>2012-08-15T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-15:keep-your-gems-and-npms-inside-your-virtualenv.html</id><summary type="html">&lt;p&gt;Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like Compass , Chef , lessc&lt;/p&gt;
 &lt;p&gt;And when you are used to work with virtual environment the last thing that you want to do it’s starting to install lib globaly.&lt;/p&gt;
-&lt;p&gt;So stick the few lines below at the bottom of virtualenv’s ‘postactivate’ or at the enf of the ‘activate’ script.&lt;/p&gt;
+&lt;p&gt;Stick the few lines below in your virtualenv’s ‘postactivate’ if you are using virtualenvwrapper or at the enf of the ‘activate’ script.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;export GEM_HOME=&amp;quot;$VIRTUAL_ENV/gems&amp;quot;
 export GEM_PATH=&amp;quot;&amp;quot;
 PATH=&amp;quot;$GEM_HOME/bin:$PATH&amp;quot;

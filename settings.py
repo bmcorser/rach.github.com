@@ -12,10 +12,10 @@ SITETITLE= u"Rach Belaid's blog"
 SITENAME = u"There's a snake in my boot!"
 SITESUBTITLE = u"Python Charmer, Git Lover, OpenSource Admirer, Technology Dreamer"
 SITEURL = 'http://rachbelaid.com'
-BITLY_SITEURL = SITEURL
-RELATIVE_URLS = False
-PAGE_DIR='pages'
 
+
+RELATIVE_URLS = False
+PAGE_DIR='src/pages'
 TIMEZONE = 'Europe/London'
 GITHUB_REPO = "https://github.com/rach/rach.github.com"
 GIT_BRANCH = 'source'
@@ -53,5 +53,10 @@ FILES_TO_COPY = (('extra/robots.txt', 'robots.txt'),('extra/CNAME', 'CNAME'),)
 
 #PLUGIN_PATH = "plugins"
 #from plugins.bitly import bitly_plugin
-#PLUGINS = [bitly_plugin,]
+PLUGINS = ['pelican-bitly',]
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
 
