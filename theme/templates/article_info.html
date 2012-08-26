@@ -1,4 +1,4 @@
- <footer class="post-info">
+t <footer class="post-info">
 
  	<i class="icon-calendar"></i>
  	<span >
@@ -24,7 +24,7 @@
 
 	 <i class="icon-twitter offset"></i>
  	<span >
- 		<a target="_blank" href="{{ TWITTER_SHARE_URL|format('Check this', article.bitly_url) }}">Tweet me</a>
+ 		<a target="_blank" href="{{ TWITTER_SHARE_URL|format(article.metadata.get('twitter_msg','Check this'), article.bitly_url) }}">Tweet me</a>
 	</span>
     
     <div class="pull-right">

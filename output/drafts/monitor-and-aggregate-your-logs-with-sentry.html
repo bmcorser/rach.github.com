@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+        
+        <title>There's a snake in my boot!</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="">
+        <meta name="author" content="Rach Belaid">
+
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/theme/css/style.css">
+        <link rel="stylesheet" href="/theme/css/pygment.css"> 
+        
+        
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="/theme/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png">
+
+        <!-- Script -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        
+
+        
+        <link href="http://rachbelaid.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="There's a snake in my boot! Atom Feed" />
+        
+        
+        
+        <link href="http://rachbelaid.com/feeds/%s.atom.xml" type="application/atom+xml" rel="alternate" title="There's a snake in my boot! Categories Atom Feed" />
+        
+        
+        
+        
+        
+</head>
+<body id="index" class="home" >
+        <!-- Navbar
+            ================================================== -->
+         <div class="navbar navbar-fixed-top">
+           <div class="navbar-inner">
+             <div class="container">
+             
+                  <a class="brand" href="/">THERE'S A SNAKE IN MY BOOT!</a>
+                   
+                <ul class="nav pull-right">
+                   
+                    
+                    <li><a href="/pages/about-me.html"  > Me</a></li>
+                    
+                    <li><a href="https://twitter.com/rachbelaid"  target="_blank"  > Twitter</a></li>
+                    
+                    <li><a href="http://uk.linkedin.com/in/rachbelaid"  target="_blank"  > Linkedin</a></li>
+                    
+                    <li><a href="http://github.com/rach/"  target="_blank"  > Github</a></li>
+                    
+                </ul>
+                
+               
+             </div>
+           </div>
+         </div>
+        <div class="container">
+
+        <header id="overview" class="jumbotron subhead">
+          
+
+          <div class".clearfix"></div>
+          
+
+        </header>
+        
+<article id="content" class="body">
+  <header>
+    <h1 class="entry-title">
+      <a href="monitor-and-aggregate-your-logs-with-sentry.html" rel="bookmark"
+         title="Permalink to Monitor and aggregate your logs with Sentry">Monitor and aggregate your logs with Sentry</a></h1>
+  </header>
+
+  <div class="entry-content">
+    <div class="section" id="setting-up-sentry-server">
+<h2>Setting up Sentry server</h2>
+<div class="section" id="dependencies">
+<h3>Dependencies</h3>
+<ul>
+<li><p class="first">Python dev packages</p>
+<pre class="literal-block">
+apt-get install python-setuptools python-dev
+</pre>
+</li>
+<li><p class="first">PostgreSQL</p>
+<pre class="literal-block">
+sudo apt-get install postgresql
+</pre>
+</li>
+</ul>
+<p>Create a place to keep the venv</p>
+<p>sudo mkdir -p /usr/local/venv/
+sudo chmod og+w /usr/local/venv</p>
+</div>
+<div class="section" id="install-and-create-a-virtualenv">
+<h3>Install and create a virtualenv</h3>
+<p>Keep you package clean, use a virtualenv.</p>
+<ul>
+<li><p class="first">Install:</p>
+<pre class="literal-block">
+sudo apt-get install python-pip
+sudo pip install virtualenv
+</pre>
+</li>
+<li><p class="first">Create venv:</p>
+<pre class="literal-block">
+virtualenv /usr/local/venv/sentry/
+</pre>
+</li>
+</ul>
+</div>
+<div class="section" id="setting-up-the-database">
+<h3>Setting up the database</h3>
+<p>Install Mysql</p>
+<pre class="literal-block">
+sudo apt-get install mysql-server libmysqlclient-dev
+</pre>
+<ul>
+<li><p class="first">Create a database for sentry</p>
+<pre class="literal-block">
+sudo mysql -p -e &quot;CREATE DATABASE sentry;&quot;
+</pre>
+</li>
+<li><p class="first">Create a sentry user and grant him  privilege</p>
+<pre class="literal-block">
+sudo mysql -p -e &quot;GRANT ALL ON sentry.* TO sentry&#64;localhost IDENTIFIED BY 'PASSWORD';&quot;
+</pre>
+</li>
+</ul>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you need to send a password via command line then think about adding some space
+at the start of the line. This will guarantee that the command is not kept in history.</p>
+</div>
+</div>
+<div class="section" id="install-sentry">
+<h3>Install Sentry</h3>
+<p>Activate the venv and install sentry</p>
+<pre class="literal-block">
+source /usr/local/venv/sentry/bin/activate
+pip install sentry
+</pre>
+<p>Install other dependencies inside the venv</p>
+<pre class="literal-block">
+pip install MySQL-python
+</pre>
+<p>Init the configuration</p>
+<pre class="literal-block">
+sentry init /etc/sentry.conf.py
+</pre>
+</div>
+<div class="section" id="configure-sentry">
+<h3>Configure Sentry</h3>
+<p>You need to configure the database access for the sentry user</p>
+<pre class="literal-block">
+DATABASES = {
+    'default': {
+        # You can swap out the engine for MySQL easily by changing this value
+        # to ``django.db.backends.mysql`` or to PostgreSQL with
+        # ``django.db.backends.postgresql_psycopg2``
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'sentry',
+        'USER': 'sentry',
+        'PASSWORD': 'SENTRY_PASSWORD',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+</pre>
+<p>You need to select what will be your web host and port but the default could be enough</p>
+<pre class="literal-block">
+SENTRY_WEB_HOST = '0.0.0.0'
+SENTRY_WEB_PORT = 8080
+</pre>
+<div class="danger">
+<p class="first admonition-title">!DANGER!</p>
+<p>make the access private</p>
+<div class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<tt class="docutils">/Users/rachid/Dev/personal/blog-rach/src/python/monitor-your-logs-with-sentry.rst</tt>, line 111)</p>
+Literal block expected; none found.</div>
+<p class="last">ENTRY_PUBLIC = False</p>
+</div>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">You should configure the URI to Sentry</p>
+</div>
+<p>It will attempt to guess it if you don't but proxies may interfere with this.:</p>
+<pre class="literal-block">
+SENTRY_URL_PREFIX = 'http://sentry.example.com'  # No trailing slash!
+</pre>
+</div>
+<div class="section" id="setup-db">
+<h3>Setup db</h3>
+<p>If you changed from the default SQLite database, make sure you start by creating the database Sentry is expecting. Once done, you can create the initial database using the upgrade command:</p>
+<pre class="literal-block">
+sentry --config=/etc/sentry.conf.py upgrade
+</pre>
+<p>It’s very important that you create the default superuser through the upgrade process. If you do not, there is a good chance you’ll see issues in your initial install.</p>
+<p>If you did not create the user on the first run, you can correct this by doing the following:</p>
+<pre class="literal-block">
+# create a new user
+sentry --config=/etc/sentry.conf.py createsuperuser
+
+# run the automated repair script
+sentry --config=/etc/sentry.conf.py repair --owner=&lt;username&gt;
+</pre>
+<p>All schema changes and database upgrades are handled via the upgrade command, and this is the first thing you’ll want to run when upgrading to future versions of Sentry.</p>
+</div>
+<div class="section" id="setting-up-an-apache-proxy-for-port-80-8080">
+<h3>Setting up an Apache Proxy for port 80 -&gt; 8080</h3>
+<p>This configuration will setup Apache2 to proxy port 80 to 8080 so that you can keep Sentry running on 8080.</p>
+<pre class="literal-block">
+sudo apt-get install apache2
+sudo a2enmod proxy
+sudo a2enmod proxy_http
+sudo a2enmod vhost_alias
+</pre>
+<p>You can remove the default vhost but I encourage to keep it allow access only via the right domain</p>
+<pre class="literal-block">
+#do not do this next command if you already have virtual hosting setup that depends on the default site.
+sudo a2dissite default
+</pre>
+<p>Create a file called <tt class="docutils literal">sentry</tt> in /etc/apache2/sites-available</p>
+<pre class="literal-block">
+&lt;VirtualHost *:80&gt;
+    ServerName sentry.rockaboxmedia.com
+    ProxyRequests Off
+    &lt;Proxy *&gt;
+        Order deny,allow
+        Allow from all
+    &lt;/Proxy&gt;
+    ProxyPreserveHost on
+    ProxyPass / http://localhost:4080/
+&lt;/VirtualHost&gt;
+</pre>
+<p>Add the new vhost and restart apache2</p>
+<pre class="literal-block">
+sudo a2ensite sentry
+sudo apache2ctl restart
+</pre>
+</div>
+<div class="section" id="running-sentry-as-service">
+<h3>Running Sentry as service</h3>
+<p>You need to install supervisor as a daemon</p>
+<pre class="literal-block">
+apt-get install supervisor
+</pre>
+<p>You need to update the configuration of supervisor in your install to be sure that</p>
+<pre class="literal-block">
+[program:sentry-web]
+directory=/usr/local/venv/sentry/
+command=/usr/local/venv/sentry/bin/sentry --config=/etc/sentry.conf.py start http
+autostart=true
+autorestart=true
+redirect_stderr=true
+</pre>
+</div>
+</div>
+<div class="section" id="configure-a-project-in-sentry">
+<h2>Configure a project in Sentry</h2>
+<p>Go to your sentry project url and log with the login and pwd of the superuser that you created previously</p>
+<p>Create a project with a team ( it seem that the team is mandatory )</p>
+<dl class="docutils">
+<dt>Now you can use the DSN in you project and follow the instruction matter of the technology:</dt>
+<dd>Django, Flask.</dd>
+</dl>
+<p>For Django :</p>
+<dl class="docutils">
+<dt>Start by installing raven-python: ::</dt>
+<dd>pip install raven</dd>
+</dl>
+<p>Then simply modify your Django configuration:</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd><p class="first"># Set your DSN value
+SENTRY_DSN = '<a class="reference external" href="http:/">http:/</a>/&lt;PUBLIC_KEY&gt;:&lt;PRIVATE_KEY&gt;&#64;host:port/&lt;PROJECT_ID&gt;'</p>
+<p class="last"># Add raven to the list of installed apps
+INSTALLED_APPS = INSTALLED_APPS + (
+# ...
+'raven.contrib.django',
+)</p>
+</dd>
+</dl>
+<p>That's it! Raven automatically installs an error handling hook to pipe all uncaught exceptions to Sentry.</p>
+<p>For Flask:</p>
+<p>Start by installing raven-python and Blinker:</p>
+<dl class="docutils">
+<dt>::</dt>
+<dd>pip install raven blinker</dd>
+</dl>
+<p>Blinker is required for signals to work within Flask.</p>
+<p>Add the required configuration in your application setup:</p>
+<pre class="literal-block">
+from raven.contrib.flask import Sentry
+
+app.config['SENTRY_DSN'] = 'http://&lt;PUBLIC_KEY&gt;:&lt;PRIVATE_KEY&gt;&#64;host:port/&lt;PROJECT_ID&gt;'
+sentry = Sentry(app)
+</pre>
+<p>That's it! Raven automatically installs an error handling hook to pipe all uncaught exceptions to Sentry.</p>
+<p>Extra Doc links:</p>
+<ul class="simple">
+<li>Raven : <a class="reference external" href="http://raven.readthedocs.org/en/latest/index.html">http://raven.readthedocs.org/en/latest/index.html</a></li>
+<li>Django : <a class="reference external" href="http://raven.readthedocs.org/en/latest/config/django.html">http://raven.readthedocs.org/en/latest/config/django.html</a></li>
+<li>Flask : <a class="reference external" href="http://raven.readthedocs.org/en/latest/config/flask.html">http://raven.readthedocs.org/en/latest/config/flask.html</a></li>
+<li>Javascript : <a class="reference external" href="https://github.com/lincolnloop/raven-js">https://github.com/lincolnloop/raven-js</a></li>
+<li>PHP : <a class="reference external" href="https://github.com/getsentry/raven-phpi">https://github.com/getsentry/raven-phpi</a></li>
+</ul>
+</div>
+<div class="section" id="setting-up-outbound-email">
+<h2>Setting up outbound email</h2>
+<p>TODO</p>
+</div>
+<div class="section" id="setting-up-https">
+<h2>Setting up https</h2>
+<p>TODO</p>
+</div>
+<div class="section" id="setting-up-sso">
+<h2>Setting up SSO</h2>
+<p>TODO</p>
+</div>
+<div class="section" id="upgrade-sentry">
+<h2>Upgrade Sentry</h2>
+<p>TODO</p>
+</div>
+
+  </div><!-- /.entry-content -->
+ 	t <footer class="post-info">
+
+ 	<i class="icon-calendar"></i>
+ 	<span >
+ 		
+	    <abbr class="published" title="2012-08-19T00:00:00">
+	      19 Aug 2012
+	    </abbr>
+	</span>
+
+    
+    <i class="icon-user offset"></i>
+    <span>
+    	
+	    <address class="vcard author">
+	      <a class="url fn" href="http://rachbelaid.com/author/rach-belaid.html">Rach Belaid</a>
+	    </address>
+	</span>
+    
+    <i class="icon-fork offset"></i>
+ 	<span >
+ 		<a target="_blank" href="https://github.com/rach/rach.github.com/blob/source/src/python/monitor-your-logs-with-sentry.rst"> Fork me</a>
+	</span>
+
+	 <i class="icon-twitter offset"></i>
+ 	<span >
+ 		<a target="_blank" href="https://twitter.com/intent/tweet?original_referer=http://rachbelaid.com&related=rachbelaid&via=rachbelaid&text=Check this&url=">Tweet me</a>
+	</span>
+    
+    <div class="pull-right">
+    	<i class="icon-tags"></i> <span><i><a href="http://rachbelaid.com/tag/monitoring.html">monitoring</a></i>, 
+<i><a href="http://rachbelaid.com/tag/logs.html">logs</a></i>, 
+<i><a href="http://rachbelaid.com/tag/python.html">python</a></i> 
+ </span>
+    </div>
+
+  </footer>
+
+ 
+
+	
+    <div class="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "monitor-and-aggregate-your-logs-with-sentry.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://rach-belaid-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
+</article>
+        
+
+        </div><!-- container -->
+        
+        <footer id="contentinfo" class="body">
+                
+               <div class="pull-right powered" > Powered by <a href="http://getpelican.com/">Pelican</a> </div>
+                
+        </footer><!-- /#contentinfo -->
+        
+        <script src="theme/js/bootstrap.min.js"></script>
+</body>
+</html>

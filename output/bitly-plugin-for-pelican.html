@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+        
+        <title>There's a snake in my boot!</title>
+        <meta charset="utf-8" />
+        <meta name="description" content="">
+        <meta name="author" content="Rach Belaid">
+
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="/theme/css/style.css">
+        <link rel="stylesheet" href="/theme/css/pygment.css"> 
+        
+        
+
+        <!--[if lt IE 9]>
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+        <!-- Favicons -->
+        <link rel="shortcut icon" href="/theme/img/favicon.ico">
+        <link rel="apple-touch-icon" href="/theme/img/apple-touch-icon.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="/theme/img/apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="/theme/img/apple-touch-icon-114x114.png">
+
+        <!-- Script -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        
+
+        
+        <link href="http://rachbelaid.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="There's a snake in my boot! Atom Feed" />
+        
+        
+        
+        <link href="http://rachbelaid.com/feeds/%s.atom.xml" type="application/atom+xml" rel="alternate" title="There's a snake in my boot! Categories Atom Feed" />
+        
+        
+        
+        
+        
+</head>
+<body id="index" class="home" >
+        <!-- Navbar
+            ================================================== -->
+         <div class="navbar navbar-fixed-top">
+           <div class="navbar-inner">
+             <div class="container">
+             
+                  <a class="brand" href="/">THERE'S A SNAKE IN MY BOOT!</a>
+                   
+                <ul class="nav pull-right">
+                   
+                    
+                    <li><a href="/pages/about-me.html"  > Me</a></li>
+                    
+                    <li><a href="https://twitter.com/rachbelaid"  target="_blank"  > Twitter</a></li>
+                    
+                    <li><a href="http://uk.linkedin.com/in/rachbelaid"  target="_blank"  > Linkedin</a></li>
+                    
+                    <li><a href="http://github.com/rach/"  target="_blank"  > Github</a></li>
+                    
+                </ul>
+                
+               
+             </div>
+           </div>
+         </div>
+        <div class="container">
+
+        <header id="overview" class="jumbotron subhead">
+          
+
+          <div class".clearfix"></div>
+          
+
+        </header>
+        
+<article id="content" class="body">
+  <header>
+    <h1 class="entry-title">
+      <a href="bitly-plugin-for-pelican.html" rel="bookmark"
+         title="Permalink to bit.ly plugin for pelican">bit.ly plugin for pelican</a></h1>
+  </header>
+
+  <div class="entry-content">
+    <p>I started writing this blog using <a class="reference external" href="http://pelican.notmyidea.org/en/3.0/">Pelican</a> which is static blog generator
+build by <a class="reference external" href="http://blog.notmyidea.org/">Alexis Metaireau</a> and based on technologies that I know and mainly that I don't hate : Python, Rst, Jinja2 ...</p>
+<p>During the customization of this blog, I wanted to be able to know how the posts will be shared by using a url shortener like <cite>bit.ly &lt;http://bit.ly/&gt;</cite>.
+Since Pelican support plugin from the version 3.0 and I hate doing repeating tasks, why not to write a plugin for it?</p>
+<p>I'have been amazed how easy it has been to wrote this plugin.
+Pelican provide a easy way to register signals which is documented <a class="reference external" href="http://pelican.notmyidea.org/en/3.0/plugins.html">here</a></p>
+<p>The only issues met was that the signal required for me was not existing yet. But it has been just fine with a bit of monkey patching.</p>
+<p>If you have a need for it, feel free to use this plugin and report any bugs or feedback on the <a class="reference external" href="https://github.com/rach/pelican.bitly">pelican.bitly github project</a>.</p>
+<div class="section" id="download-and-install">
+<h2>Download and install</h2>
+<p>I encourage you to install the plugin via <tt class="docutils literal">pip</tt></p>
+<pre class="literal-block">
+pip install pelican.bitly
+</pre>
+<p>Otherwise you can download <a class="reference external" href="http://pypi.python.org/pypi/pelican.bitly">pelican.npm</a> on pypi
+and installing it by running</p>
+<pre class="literal-block">
+python setup.py install
+</pre>
+</div>
+<div class="section" id="how-to-use-it">
+<h2>How to use it</h2>
+<p>To load the plugin, you have to add it in your settings file.</p>
+<pre class="code python literal-block">
+<span class="n">PLUGINS</span> <span class="o">=</span> <span class="p">[</span><span class="s">'pelican-bitly'</span><span class="p">,]</span>
+</pre>
+<div class="note">
+<p class="first admonition-title">Note</p>
+<p class="last">you can setup the plugin by specifying a string with the path to with the path to it or import it and add the module in the list</p>
+</div>
+<p>For being able to use this pluging you need to have SITEURL defined in your settings file, otherwise the plugin has no way to guess the absolute url.</p>
+<div class="highlight"><pre><span class="n">SITEURL</span> <span class="o">=</span> <span class="s">&#39;http://example.com&#39;</span>
+</pre></div>
+<p>The last step is adding  your bit.ly username and api key in your settings file</p>
+<div class="highlight"><pre><span class="n">BITLY_USERNAME</span> <span class="o">=</span> <span class="s">&#39;username&#39;</span>
+<span class="n">BITLY_API_KEY</span> <span class="o">=</span> <span class="s">&#39;api_key&#39;</span>
+</pre></div>
+<div class="warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you are using a public repository as Github for the keeping the source code of your pelican site then think about keeping the settings
+<tt class="docutils literal">BITLY_USERNAME</tt> and  <tt class="docutils literal">BITLY_API_KEY</tt> in a separated settings file (eg: <tt class="docutils literal">local_settings.py</tt>) and added this one to your <tt class="docutils literal">.gitignore</tt></p>
+</div>
+<p>Now that the plugin is configured, you can rebuilt your site and you should see  the short url being created in the <tt class="docutils literal">pelican</tt> output</p>
+<pre class="literal-block">
+-&gt; generate short url http://example.com/post_example.html -&gt; http://bit.ly/XXXXXX
+</pre>
+<p>From your templates,you can now access the bitly url of the <tt class="docutils literal">article</tt> and <tt class="docutils literal">page</tt> object from the <tt class="docutils literal">bitly_url</tt> attribute</p>
+<pre class="literal-block">
+{{ article.bitly_url }}
+{{ page.bitly_url }}
+</pre>
+</div>
+
+  </div><!-- /.entry-content -->
+ 	t <footer class="post-info">
+
+ 	<i class="icon-calendar"></i>
+ 	<span >
+ 		
+	    <abbr class="published" title="2012-08-26T00:00:00">
+	      26 Aug 2012
+	    </abbr>
+	</span>
+
+    
+    <i class="icon-user offset"></i>
+    <span>
+    	
+	    <address class="vcard author">
+	      <a class="url fn" href="http://rachbelaid.com/author/rach-belaid.html">Rach Belaid</a>
+	    </address>
+	</span>
+    
+    <i class="icon-fork offset"></i>
+ 	<span >
+ 		<a target="_blank" href="https://github.com/rach/rach.github.com/blob/source/src/python/pelican-bitly-plugin.rst"> Fork me</a>
+	</span>
+
+	 <i class="icon-twitter offset"></i>
+ 	<span >
+ 		<a target="_blank" href="https://twitter.com/intent/tweet?original_referer=http://rachbelaid.com&related=rachbelaid&via=rachbelaid&text=Bit.ly plugin for Pelican from @rachbelaid #python #bitly #pelican&url=http://bit.ly/OfYbqt">Tweet me</a>
+	</span>
+    
+    <div class="pull-right">
+    	<i class="icon-tags"></i> <span><i><a href="http://rachbelaid.com/tag/analytics.html">analytics</a></i>, 
+<i><a href="http://rachbelaid.com/tag/pelican.html">pelican</a></i> 
+ </span>
+    </div>
+
+  </footer>
+
+ 
+
+	
+    <div class="comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+        var disqus_identifier = "bitly-plugin-for-pelican.html";
+        (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://rach-belaid-blog.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+      </script>
+    </div>
+    
+</article>
+        
+
+        </div><!-- container -->
+        
+        <footer id="contentinfo" class="body">
+                
+               <div class="pull-right powered" > Powered by <a href="http://getpelican.com/">Pelican</a> </div>
+                
+        </footer><!-- /#contentinfo -->
+        
+        <script src="theme/js/bootstrap.min.js"></script>
+</body>
+</html>
