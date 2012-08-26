@@ -1,10 +1,14 @@
 {% extends "base.html" %}
+
+{% block header %}
+{% endblock %}
+
 {% block content %}
-<section id="content" class="body">
+<article id="content" class="body">
   <header>
-    <h3 class="entry-title">
+    <h1 class="entry-title">
       <a href="{{ article.url }}" rel="bookmark"
-         title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+         title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h1>
   </header>
 
   <div class="entry-content">
@@ -13,5 +17,5 @@
  	{% include 'article_info.html' %}
 
 	{% include 'disqus.html' %}
-</section>
+</article>
 {% endblock %}

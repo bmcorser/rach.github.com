@@ -7,7 +7,8 @@ Keep your gems and npms inside your virtualenv
 :author: Rach Belaid
 
 
-Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like Compass , Chef , lessc
+Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like: `compass <http://compass-style.org/>`_, 
+`chef <http://www.opscode.com/chef/>`_, `less <http://lesscss.org/>`_
 
 And when you are used to work with virtual environment the last thing that you want to do it’s starting to install lib globaly.
 

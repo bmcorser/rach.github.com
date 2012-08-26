@@ -1,18 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/all.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-25T00:00:00+01:00</updated><entry><title>Virtualenvwrapper for gems (ruby) and npm's</title><link href="http://rachbelaid.com/virtualenvwrapper-for-gems-ruby-and-npms.html" rel="alternate"></link><updated>2012-08-25T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-25:virtualenvwrapper-for-gems-ruby-and-npms.html</id><summary type="html">&lt;p&gt;In a previous post I explained to modify your activate script for being able
-to encapsulate node and ruby package (npm and gem).&lt;/p&gt;
-&lt;p&gt;I  wrote 2 tiny plugins for virtualenvwrapper for handling it automaticaly.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/all.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-26T00:00:00+01:00</updated><entry><title>bit.ly plugin for pelican</title><link href="http://rachbelaid.com/bitly-plugin-for-pelican.html" rel="alternate"></link><updated>2012-08-26T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-26:bitly-plugin-for-pelican.html</id><summary type="html">&lt;p&gt;I started writing this blog using &lt;a class="reference external" href="http://pelican.notmyidea.org/en/3.0/"&gt;Pelican&lt;/a&gt; which is static blog generator
+build by &lt;a class="reference external" href="http://blog.notmyidea.org/"&gt;Alexis Metaireau&lt;/a&gt; and based on technologies that I know and mainly that I don't hate : Python, Rst, Jinja2 ...&lt;/p&gt;
+&lt;p&gt;During the customization of this blog, I wanted to be able to know how the posts will be shared by using a url shortener like &lt;cite&gt;bit.ly &amp;lt;http://bit.ly/&amp;gt;&lt;/cite&gt;.
+Since Pelican support plugin from the version 3.0 and I hate doing repeating tasks, why not to write a plugin for it?&lt;/p&gt;
+&lt;p&gt;I'have been amazed how easy it has been to wrote this plugin.
+Pelican provide a easy way to register signals which is documented &lt;a class="reference external" href="http://pelican.notmyidea.org/en/3.0/plugins.html"&gt;here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The only issues met was that the signal required for me was not existing yet. But it has been just fine with a bit of monkey patching.&lt;/p&gt;
+&lt;p&gt;If you have a need for it, feel free to use this plugin and report any bugs or feedback on the &lt;a class="reference external" href="https://github.com/rach/pelican.bitly"&gt;pelican.bitly github project&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="section" id="download-and-install"&gt;
+&lt;h2&gt;Download and install&lt;/h2&gt;
+&lt;p&gt;I encourage you to install the plugin via &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt;&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+pip install pelican.bitly
+&lt;/pre&gt;
+&lt;p&gt;Otherwise you can download &lt;a class="reference external" href="http://pypi.python.org/pypi/pelican.bitly"&gt;pelican.npm&lt;/a&gt; on pypi
+and installing it by running&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+python setup.py install
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-to-use-it"&gt;
+&lt;h2&gt;How to use it&lt;/h2&gt;
+&lt;p&gt;To load the plugin, you have to add it in your settings file.&lt;/p&gt;
+&lt;pre class="code python literal-block"&gt;
+&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'pelican-bitly'&lt;/span&gt;&lt;span class="p"&gt;,]&lt;/span&gt;
+&lt;/pre&gt;
 &lt;div class="note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
-&lt;p class="last"&gt;This post assume that you already using &lt;a class="reference external" href="http://www.doughellmann.com/projects/virtualenvwrapper/"&gt;virtualenvwrapper&lt;/a&gt;&lt;/p&gt;
+&lt;p class="last"&gt;you can setup the plugin by specifying a string with the path to with the path to it or import it and add the module in the list&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For being able to use this pluging you need to have SITEURL defined in your settings file, otherwise the plugin has no way to guess the absolute url.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://example.com&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The last step is adding  your bit.ly username and api key in your settings file&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;BITLY_USERNAME&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;username&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;BITLY_API_KEY&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;api_key&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="warning"&gt;
+&lt;p class="first admonition-title"&gt;Warning&lt;/p&gt;
+&lt;p class="last"&gt;If you are using a public repository as Github for the keeping the source code of your pelican site then think about keeping the settings
+&lt;tt class="docutils literal"&gt;BITLY_USERNAME&lt;/tt&gt; and  &lt;tt class="docutils literal"&gt;BITLY_API_KEY&lt;/tt&gt; in a separated settings file (eg: &lt;tt class="docutils literal"&gt;local_settings.py&lt;/tt&gt;) and added this one to your &lt;tt class="docutils literal"&gt;.gitignore&lt;/tt&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Now that the plugin is configured, you can rebuilt your site and you should see  the short url being created in the &lt;tt class="docutils literal"&gt;pelican&lt;/tt&gt; output&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+-&amp;gt; generate short url http://example.com/post_example.html -&amp;gt; http://bit.ly/XXXXXX
+&lt;/pre&gt;
+&lt;p&gt;From your templates,you can now access the bitly url of the &lt;tt class="docutils literal"&gt;article&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;page&lt;/tt&gt; object from the &lt;tt class="docutils literal"&gt;bitly_url&lt;/tt&gt; attribute&lt;/p&gt;
+&lt;pre class="literal-block"&gt;
+{{ article.bitly_url }}
+{{ page.bitly_url }}
+&lt;/pre&gt;
+&lt;/div&gt;
+</summary><category term="analytics"></category><category term="pelican"></category></entry><entry><title>Virtualenvwrapper plugins for gems and npm's</title><link href="http://rachbelaid.com/virtualenvwrapper-plugins-for-gems-and-npms.html" rel="alternate"></link><updated>2012-08-25T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-25:virtualenvwrapper-plugins-for-gems-and-npms.html</id><summary type="html">&lt;p&gt;I love virtualenv and when I have to install some libs globably, it makes me mad.&lt;/p&gt;
+&lt;p&gt;In a previous &lt;a class="reference external" href="/keep-your-gems-and-npms-inside-your-virtualenv.html"&gt;post&lt;/a&gt;, I explained how to modify your activate script for being able
+to encapsulate node and ruby packages which are called gems and npm's.&lt;/p&gt;
+&lt;p&gt;After realizing that virtualwrapper was offering a way to extend it via plugins.
+I decided to wrote 2 tiny plugins for it for handling the hack automaticaly in a nicer way.&lt;/p&gt;
+&lt;div class="note"&gt;
+&lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
+&lt;p class="last"&gt;This post assume that you are using &lt;a class="reference external" href="http://www.doughellmann.com/projects/virtualenvwrapper/"&gt;virtualenvwrapper&lt;/a&gt;,
+otherwise I advice you to check it first.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class="section" id="virtualenvwrapper-gem-plugin"&gt;
 &lt;h2&gt;virtualenvwrapper gem plugin&lt;/h2&gt;
-&lt;p&gt;It happen more and more often that I m trying some ruby packages.
+&lt;p&gt;It happen more and more often that I'm trying some ruby packages.
 Ruby has some very good apps like : &lt;a class="reference external" href="http://www.opscode.com/chef/"&gt;chef&lt;/a&gt;, &lt;a class="reference external" href="http://sass-lang.com/"&gt;sass&lt;/a&gt;,
 &lt;a class="reference external" href="http://progrium.com/localtunnel/"&gt;localtunnel&lt;/a&gt;, ...&lt;/p&gt;
 &lt;div class="section" id="download-and-install"&gt;
-&lt;h3&gt;Download and install:&lt;/h3&gt;
+&lt;h3&gt;Download and install&lt;/h3&gt;
 &lt;p&gt;I encourage you to install it via &lt;tt class="docutils literal"&gt;pip&lt;/tt&gt;&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 pip install virtualenvwrapper.gem
@@ -30,19 +85,18 @@ python setup.py install
 &lt;/div&gt;
 &lt;div class="section" id="how-to-use-it"&gt;
 &lt;h3&gt;How to use it&lt;/h3&gt;
-&lt;dl class="docutils"&gt;
-&lt;dt&gt;::&lt;/dt&gt;
-&lt;dd&gt;mkvirtualenv test
+&lt;pre class="literal-block"&gt;
+mkvirtualenv test
 workon test #if not already inside
 gem install sass
-which sass #&amp;gt; $VIRTUAL_ENV/lib/gems/bin/sass&lt;/dd&gt;
-&lt;/dl&gt;
+which sass #&amp;gt; $VIRTUAL_ENV/lib/gems/bin/sass
+&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="virtualenvwrapper-npm-plugin"&gt;
 &lt;h2&gt;virtualenvwrapper npm plugin&lt;/h2&gt;
 &lt;p&gt;Even if I'm not a fan of nodejs, I have to admit that the node's app
-for frontend processing and testing are awesome, eg : &lt;cite&gt;less &amp;lt;http://lesscss.org/&amp;gt;&lt;/cite&gt; _,
+for frontend processing and testing are awesome, eg : &lt;a class="reference external" href="http://lesscss.org/"&gt;less&lt;/a&gt;,
 &lt;a class="reference external" href="http://requirejs.org/docs/optimization.html"&gt;r.js&lt;/a&gt;, &lt;a class="reference external" href="http://busterjs.org/"&gt;buster.js&lt;/a&gt;&lt;/p&gt;
 &lt;div class="section" id="id1"&gt;
 &lt;h3&gt;Download and install:&lt;/h3&gt;
@@ -57,19 +111,17 @@ python setup.py install
 &lt;/pre&gt;
 &lt;div class="warning"&gt;
 &lt;p class="first admonition-title"&gt;Warning&lt;/p&gt;
-&lt;p&gt;Where to install it&lt;/p&gt;
 &lt;p class="last"&gt;This package cannot be installed inside a virtualenv but as to be installed globaly like virtualenvwrapper&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="section" id="id2"&gt;
 &lt;h3&gt;How to use it&lt;/h3&gt;
-&lt;dl class="docutils"&gt;
-&lt;dt&gt;::&lt;/dt&gt;
-&lt;dd&gt;mkvirtualenv test
+&lt;pre class="literal-block"&gt;
+mkvirtualenv test
 workon test #if not already inside
 npm install less
-which lessc #&amp;gt; $VIRTUAL_ENV/bin/lessc&lt;/dd&gt;
-&lt;/dl&gt;
+which lessc #&amp;gt; $VIRTUAL_ENV/bin/lessc
+&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </summary><category term="virtualenvwrapper"></category><category term="virtualenv"></category><category term="ruby"></category><category term="nodejs"></category></entry><entry><title>How to build a github page with git subtree merge</title><link href="http://rachbelaid.com/how-to-build-a-github-page-with-git-subtree-merge.html" rel="alternate"></link><updated>2012-08-19T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-19:how-to-build-a-github-page-with-git-subtree-merge.html</id><summary type="html">&lt;p&gt;This post is about using &lt;tt class="docutils literal"&gt;git subtree merge&lt;/tt&gt; to have a branch that is a subset of another branch.
@@ -164,7 +216,8 @@ git pull -s subtree origin source
 true | git mktree | xargs git commit-tree | xargs git branch master
 &lt;/pre&gt;
 &lt;/div&gt;
-</summary><category term="github"></category><category term="git"></category><category term="pelican"></category></entry><entry><title>Keep your gems and npms inside your virtualenv</title><link href="http://rachbelaid.com/keep-your-gems-and-npms-inside-your-virtualenv.html" rel="alternate"></link><updated>2012-08-15T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-15:keep-your-gems-and-npms-inside-your-virtualenv.html</id><summary type="html">&lt;p&gt;Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like Compass , Chef , lessc&lt;/p&gt;
+</summary><category term="github"></category><category term="git"></category><category term="pelican"></category></entry><entry><title>Keep your gems and npms inside your virtualenv</title><link href="http://rachbelaid.com/keep-your-gems-and-npms-inside-your-virtualenv.html" rel="alternate"></link><updated>2012-08-15T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-15:keep-your-gems-and-npms-inside-your-virtualenv.html</id><summary type="html">&lt;p&gt;Alas the python community doesn’t have yet some of the great tools that the Ruby/Node community have like: &lt;a class="reference external" href="http://compass-style.org/"&gt;compass&lt;/a&gt;,
+&lt;a class="reference external" href="http://www.opscode.com/chef/"&gt;chef&lt;/a&gt;, &lt;a class="reference external" href="http://lesscss.org/"&gt;less&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;And when you are used to work with virtual environment the last thing that you want to do it’s starting to install lib globaly.&lt;/p&gt;
 &lt;p&gt;Stick the few lines below in your virtualenv’s ‘postactivate’ if you are using virtualenvwrapper or at the enf of the ‘activate’ script.&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;export GEM_HOME=&amp;quot;$VIRTUAL_ENV/gems&amp;quot;
