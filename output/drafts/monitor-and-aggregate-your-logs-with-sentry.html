@@ -30,6 +30,7 @@
         <!-- Script -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
         
+        <script src="/theme/js/script.js"></script>
 
         
         <link href="http://rachbelaid.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate" title="There's a snake in my boot! Atom Feed" />
@@ -55,7 +56,7 @@
                 <ul class="nav pull-right">
                    
                     
-                    <li><a href="/pages/about-me.html"  > Me</a></li>
+                    <li><a href="/about-me.html"  > Me</a></li>
                     
                     <li><a href="https://twitter.com/rachbelaid"  target="_blank"  > Twitter</a></li>
                     
@@ -339,7 +340,7 @@ sentry = Sentry(app)
 </div>
 
   </div><!-- /.entry-content -->
- 	t <footer class="post-info">
+ 	<footer class="post-info">
 
  	<i class="icon-calendar"></i>
  	<span >
@@ -365,7 +366,13 @@ sentry = Sentry(app)
 
 	 <i class="icon-twitter offset"></i>
  	<span >
- 		<a target="_blank" href="https://twitter.com/intent/tweet?original_referer=http://rachbelaid.com&related=rachbelaid&via=rachbelaid&text=Check this&url=">Tweet me</a>
+ 		<a class="twitter-share"
+		        href="http://twitter.com/share"
+			data-twitter-original-referrer="http://rachbelaid.com"
+			data-twitter-related="rachbelaid"
+			data-twitter-text="Check this"
+ 			data-twitter-url="" 
+ 			data-twitter-via="rachbelaid" >Tweet me</a>
 	</span>
     
     <div class="pull-right">

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>There's a snake in my boot!</title><link href="http://rachbelaid.com/" rel="alternate"></link><link href="http://rachbelaid.com/feeds/all.atom.xml" rel="self"></link><id>http://rachbelaid.com/</id><updated>2012-08-26T00:00:00+01:00</updated><entry><title>bit.ly plugin for pelican</title><link href="http://rachbelaid.com/bitly-plugin-for-pelican.html" rel="alternate"></link><updated>2012-08-26T00:00:00+01:00</updated><author><name>Rach Belaid</name></author><id>tag:rachbelaid.com,2012-08-26:bitly-plugin-for-pelican.html</id><summary type="html">&lt;p&gt;I started writing this blog using &lt;a class="reference external" href="http://pelican.notmyidea.org/en/3.0/"&gt;Pelican&lt;/a&gt; which is static blog generator
 build by &lt;a class="reference external" href="http://blog.notmyidea.org/"&gt;Alexis Metaireau&lt;/a&gt; and based on technologies that I know and mainly that I don't hate : Python, Rst, Jinja2 ...&lt;/p&gt;
-&lt;p&gt;During the customization of this blog, I wanted to be able to know how the posts will be shared by using a url shortener like &lt;cite&gt;bit.ly &amp;lt;http://bit.ly/&amp;gt;&lt;/cite&gt;.
+&lt;p&gt;During the customization of this blog, I wanted to be able to know how the posts will be shared by using a url shortener like &lt;a class="reference external" href="http://bit.ly/"&gt;bit.ly&lt;/a&gt;.
 Since Pelican support plugin from the version 3.0 and I hate doing repeating tasks, why not to write a plugin for it?&lt;/p&gt;
 &lt;p&gt;I'have been amazed how easy it has been to wrote this plugin.
-Pelican provide a easy way to register signals which is documented &lt;a class="reference external" href="http://pelican.notmyidea.org/en/3.0/plugins.html"&gt;here&lt;/a&gt;&lt;/p&gt;
+Pelican provide a easy way to register signals which is documented &lt;a class="reference external" href="http://pelican.notmyidea.org/en/3.0/plugins.html"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;The only issues met was that the signal required for me was not existing yet. But it has been just fine with a bit of monkey patching.&lt;/p&gt;
 &lt;p&gt;If you have a need for it, feel free to use this plugin and report any bugs or feedback on the &lt;a class="reference external" href="https://github.com/rach/pelican.bitly"&gt;pelican.bitly github project&lt;/a&gt;.&lt;/p&gt;
 &lt;div class="section" id="download-and-install"&gt;

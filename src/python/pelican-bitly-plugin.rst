@@ -5,16 +5,16 @@ bit.ly plugin for pelican
 :tags: analytics, pelican
 :category: python
 :author: Rach Belaid
-:twitter_msg: Bit.ly plugin for Pelican from @rachbelaid #python #bitly #pelican  
+:twitter_msg: Bit.ly plugin for Pelican #python #bitly #pelican  
 
 I started writing this blog using `Pelican <http://pelican.notmyidea.org/en/3.0/>`_ which is static blog generator 
 build by `Alexis Metaireau <http://blog.notmyidea.org/>`_ and based on technologies that I know and mainly that I don't hate : Python, Rst, Jinja2 ...
 
-During the customization of this blog, I wanted to be able to know how the posts will be shared by using a url shortener like `bit.ly <http://bit.ly/>`. 
+During the customization of this blog, I wanted to be able to know how the posts will be shared by using a url shortener like `bit.ly <http://bit.ly/>`_. 
 Since Pelican support plugin from the version 3.0 and I hate doing repeating tasks, why not to write a plugin for it?
 
 I'have been amazed how easy it has been to wrote this plugin.
-Pelican provide a easy way to register signals which is documented `here <http://pelican.notmyidea.org/en/3.0/plugins.html>`_
+Pelican provide a easy way to register signals which is documented `here <http://pelican.notmyidea.org/en/3.0/plugins.html>`_.
 
 The only issues met was that the signal required for me was not existing yet. But it has been just fine with a bit of monkey patching.
 

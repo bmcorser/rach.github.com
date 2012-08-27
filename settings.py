@@ -21,15 +21,17 @@ GITHUB_REPO = "https://github.com/rach/rach.github.com"
 GIT_BRANCH = 'source'
 GITHUB_EDIT_PREFIX = "%s/blob/%s" % (GITHUB_REPO, GIT_BRANCH)
 TWITTER_USERNAME = 'rachbelaid'
-TWITTER_SHARE_URL_SCHEMA = "https://twitter.com/intent/tweet?original_referer=%s&related=%s&via=%s&text=%s&url=%s"
-TWITTER_SHARE_URL = TWITTER_SHARE_URL_SCHEMA % (SITEURL, TWITTER_USERNAME, TWITTER_USERNAME, "%s", "%s")
+TWITTER_SHARE_RELATED = TWITTER_USERNAME
+TWITTER_SHARE_VIA = TWITTER_USERNAME
+
+
 DEFAULT_LANG='en'
 #GOOGLE_ANALYTICS = ""
 # Social widgets
 # Name , link, new page
 SOCIAL =  (
 
-     ('Me', '/pages/about-me.html' , False  ),
+     ('Me', '/about-me.html' , False  ),
      ('Twitter', 'https://twitter.com/rachbelaid', True),
     ('Linkedin', 'http://uk.linkedin.com/in/rachbelaid', True),
     ('Github', 'http://github.com/rach/', True),
@@ -49,8 +51,9 @@ DEFAULT_DATE_FORMAT = "%d %b %Y"
 # A list of files to copy from the source to the destination
 FILES_TO_COPY = (('extra/robots.txt', 'robots.txt'),('extra/CNAME', 'CNAME'),)
 
-#STATIC_PAGES = {'/me.html': 'static/me.html', }
+DIRECT_TEMPLATES= ['index', 'tags', 'categories', 'archives','about_me']
 
+ABOUT_ME_SAVE_AS = 'about-me.html'
 #PLUGIN_PATH = "plugins"
 #from plugins.bitly import bitly_plugin
 PLUGINS = ['pelican-bitly',]
