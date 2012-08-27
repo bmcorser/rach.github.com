@@ -28,7 +28,7 @@ I encourage you to install the plugin via ``pip`` ::
 
         pip install pelican.bitly
 
-Otherwise you can download `pelican.npm <http://pypi.python.org/pypi/pelican.bitly>`_ on pypi 
+Otherwise you can download `pelican.bitly <http://pypi.python.org/pypi/pelican.bitly>`_ on pypi 
 and installing it by running ::
 
         python setup.py install 

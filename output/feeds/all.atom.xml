@@ -13,7 +13,7 @@ Pelican provide a easy way to register signals which is documented &lt;a class="
 &lt;pre class="literal-block"&gt;
 pip install pelican.bitly
 &lt;/pre&gt;
-&lt;p&gt;Otherwise you can download &lt;a class="reference external" href="http://pypi.python.org/pypi/pelican.bitly"&gt;pelican.npm&lt;/a&gt; on pypi
+&lt;p&gt;Otherwise you can download &lt;a class="reference external" href="http://pypi.python.org/pypi/pelican.bitly"&gt;pelican.bitly&lt;/a&gt; on pypi
 and installing it by running&lt;/p&gt;
 &lt;pre class="literal-block"&gt;
 python setup.py install
