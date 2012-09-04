@@ -26,12 +26,12 @@ TWITTER_SHARE_VIA = TWITTER_USERNAME
 
 
 DEFAULT_LANG='en'
-#GOOGLE_ANALYTICS = ""
+GOOGLE_ANALYTICS = "UA-34383847-1"
 # Social widgets
 # Name , link, new page
 SOCIAL =  (
 
-     ('Me', '/about-me.html' , False  ),
+     ('Me', '/profile.html' , False  ),
      ('Twitter', 'https://twitter.com/rachbelaid', True),
     ('Linkedin', 'http://uk.linkedin.com/in/rachbelaid', True),
     ('Github', 'http://github.com/rach/', True),
@@ -51,9 +51,11 @@ DEFAULT_DATE_FORMAT = "%d %b %Y"
 # A list of files to copy from the source to the destination
 FILES_TO_COPY = (('extra/robots.txt', 'robots.txt'),('extra/CNAME', 'CNAME'),)
 
-DIRECT_TEMPLATES= ['index', 'tags', 'categories', 'archives','about_me']
-
-ABOUT_ME_SAVE_AS = 'about-me.html'
+DIRECT_TEMPLATES= ['index', 'tags', 'categories', 'archives','profile'] #,'resume','projects']
+EXTRA_TEMPLATES_PATHS=['extra',]
+PROFILE_SAVE_AS = 'profile.html'
+RESUME_SAVE_AS = 'resume.html'
+PROJECTS_SAVE_AS = 'projects.html'
 #PLUGIN_PATH = "plugins"
 #from plugins.bitly import bitly_plugin
 PLUGINS = ['pelican-bitly',]

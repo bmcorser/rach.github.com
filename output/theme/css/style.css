@@ -4199,6 +4199,7 @@ h4 a,
 h5 a,
 h6 a {
   color: #000000;
+  font-weight: normal;
 }
 h1 a:hover,
 h2 a:hover,
@@ -4543,6 +4544,7 @@ code {
 }
 .post-info a:hover {
   text-decoration: none;
+  font-weight: bolder;
 }
 .post-info > i {
   margin-right: 5px;
@@ -4634,6 +4636,9 @@ p.admonition-title {
 .entry-content h6 {
   color: #444;
   margin-bottom: 10px;
+}
+.entry-content {
+  text-align: justify;
 }
 .pull-right {
   float: right;

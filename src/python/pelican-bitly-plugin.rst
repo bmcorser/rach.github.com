@@ -38,7 +38,7 @@ How to use it
 
 To load the plugin, you have to add it in your settings file. 
 
-.. code:: python
+.. code-block:: python
 
         PLUGINS = ['pelican-bitly',]
 

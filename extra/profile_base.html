@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block subnav %}
+ <div class="subnav">
+            <ul class="nav nav-pills">
+		<li {% if 'profile' %}class="active" {% endif %}><a href="/profile.html">PROFILE</a></li>
+                <li {% if  'resume' %} class="active"{% endif %}><a href="/resume.html">RESUME</a></li>
+                <li {% if  'projects' %} class="active"{% endif %}><a href="/projects.html">PROJECTS</a></li>
+            </ul>
+ </div>
+ 
+
+{% endblock %}

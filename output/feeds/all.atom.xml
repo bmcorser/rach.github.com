@@ -22,9 +22,8 @@ python setup.py install
 &lt;div class="section" id="how-to-use-it"&gt;
 &lt;h2&gt;How to use it&lt;/h2&gt;
 &lt;p&gt;To load the plugin, you have to add it in your settings file.&lt;/p&gt;
-&lt;pre class="code python literal-block"&gt;
-&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;'pelican-bitly'&lt;/span&gt;&lt;span class="p"&gt;,]&lt;/span&gt;
-&lt;/pre&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="n"&gt;PLUGINS&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;pelican-bitly&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;div class="note"&gt;
 &lt;p class="first admonition-title"&gt;Note&lt;/p&gt;
 &lt;p class="last"&gt;you can setup the plugin by specifying a string with the path to with the path to it or import it and add the module in the list&lt;/p&gt;
