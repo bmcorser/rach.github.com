@@ -123,3 +123,8 @@ Downloading fr.utf-8.sug...
 sug'
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
 "/usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/Resources/vim/runtime/spell/fr.utf-8.sug
+
+
+http://editorconfig.org/#example-file
+http://www.vim.org/scripts/script.php?script_id=3150
+
