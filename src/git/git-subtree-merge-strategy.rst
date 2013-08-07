@@ -107,7 +107,9 @@ Enjoy your website on ``http://username.github.com``
       
         ::
 
-                 git pull -s subtree -X theirs origin source
+                 git pull -s subtree origin source
+                 
+        Try adding ``-X theirs`` in case of conflicts, as we will always need the incoming tree.
 
 .. note::  Alternative to create an empty branch
 
