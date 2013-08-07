@@ -107,7 +107,7 @@ Enjoy your website on ``http://username.github.com``
       
         ::
 
-                 git pull -s subtree origin source
+                 git pull -s subtree -X theirs origin source
 
 .. note::  Alternative to create an empty branch
 
